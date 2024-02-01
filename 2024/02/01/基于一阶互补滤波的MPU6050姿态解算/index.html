@@ -1,262 +1,61 @@
 <!DOCTYPE html>
-<html lang="zh">
-<head>
+<html>
+  <head>
+     
     <meta charset="UTF-8">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>基于一阶互补滤波的MPU6050姿态解算 - cRbWIt&#39;s Blog</title>
+    <link rel="shortcut icon" href="/ChaoiteC/ChaoiteC.github.io/static/img/icon.png">
+    <link rel="icon" href="/static/img/icon.png" sizes="192x192"/>
     
-    <meta name="referrer" content="no-referrer-when-downgrade">
-    
-    <meta name="renderer" content="webkit"/>
-    <meta name="force-rendering" content="webkit"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
-    
-    
-        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
-        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
-    
-    
-    
-        <link rel="shortcut icon" href="/icons/favicon.ico">
-    
+<link rel="stylesheet" href="/ChaoiteC/ChaoiteC.github.io/static/kico.css">
+<link rel="stylesheet" href="/ChaoiteC/ChaoiteC.github.io/static/hingle.css">
 
     
-    
-        
-<link rel="stylesheet" href="/ChaoiteC/ChaoiteC.github.io/css/mdui.min.v1.0.0.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    
-    
-<link rel="stylesheet" href="/ChaoiteC/ChaoiteC.github.io/css/main.css">
-<link rel="stylesheet" href="/ChaoiteC/ChaoiteC.github.io/css/iconfont.css">
-
-
-    
-    
-
-    
-        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    
-
-
-
-
-
-
-
-
-
-
-
-
-          
-
-
-    
-    
-    <title>
-        
-            基于一阶互补滤波的MPU6050姿态解算 | cRbWIt&#39;s Blog
-        
-    </title>
-    
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1"/>
+    <meta property="og:site_name" content="cRbWIt&#39;s Blog">
+    <meta property="og:title" content="基于一阶互补滤波的MPU6050姿态解算"/>
     
 <meta name="generator" content="Hexo 7.1.1"></head>
-<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
-  
-  <header class="mdui-appbar mdui-appbar-fixed">
-  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
-    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
-    <a href="/ChaoiteC/ChaoiteC.github.io/" class="mdui-typo-headline">cRbWIt&#39;s Blog</a>
-    <a href="/ChaoiteC/ChaoiteC.github.io/" class="header-subtitle mdui-typo-headline">In experimental stage!</a>
-    <div class="mdui-toolbar-spacer"></div>
-    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
-  </div>
-</header>
 
-<div class="mdui-dialog" id="search">
-  
-    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="请输入关键字"><input type="hidden" name="sitesearch" value="https://github.com/ChaoiteC/ChaoiteC.github.io"></form>
-    <div class="search-result"></div>
-  
-</div>
-
-  <aside id="sidebar" class="mdui-drawer">
-    <div class="mdui-tab" mdui-tab>
-        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
-        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+  <body>
+    <header>
+    <div class="head-title">
+        <h4>cRbWIt&#39;s Blog</h4>
     </div>
-
-    
-    <div id="sidebar-tab1" class="mdui-p-a-2">
-        <div class="mdui-list">
-            
-                
-                <a href="/ChaoiteC/ChaoiteC.github.io/" class="mdui-list-item mdui-ripple">
-                    <div class="mdui-list-item-icon">
-                        <i class="iconfont icon-home"></i>
-                    </div>
-                    <div class="mdui-list-item-content">主页</div>
-                </a>
-            
-                
-                <a href="/ChaoiteC/ChaoiteC.github.io/archives/" class="mdui-list-item mdui-ripple">
-                    <div class="mdui-list-item-icon">
-                        <i class="iconfont icon-archive"></i>
-                    </div>
-                    <div class="mdui-list-item-content">归档</div>
-                </a>
-            
-            <div class="mdui-list-item mdui-ripple">
-                <div class="mdui-list-item-icon">
-                    <i class="iconfont icon-moon"></i>
-                </div>
-                <div class="mdui-list-item-content">夜间模式</div>
-                <label class="mdui-switch" id="darkmode">
-                  <input type="checkbox" id="nightmode_switch"/>
-                  <i class="mdui-switch-icon"></i>
-                </label>
-            </div>           
-        </div>
+    <div class="head-action">
+        <div class="toggle-btn"></div>
+        <div class="light-btn"></div>
+        <div class="search-btn"></div>
     </div>
-
-    
-    <div id="sidebar-tab2" class="mdui-p-a-2">
-        <div class="sidebar-overview">
-            <div class="sidebar-avatar">
-                
-                    <img src="/icons/avatar.gif"/>
+    <form class="head-search" method="post">
+        <input type="text" name="s" placeholder="搜索什么？">
+    </form>
+    <nav class="head-menu">
+        <a href="/ChaoiteC/ChaoiteC.github.io/">首页</a>
+        <div class="has-child">
+            <a>分类</a>
+            <div class="sub-menu">
                 
             </div>
-            <div class="sidebar-author-name">ChaoiteC</div>
-            <div class="sidebar-description"></div>
         </div>
-        <div class="sidebar-links">
-            
-                
-                <div class="mdui-chip">
-                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
-                    <a href="/ChaoiteC/ChaoiteC.github.io/ChaoiteC@outlook.com" class="mdui-chip-title">E-Mail</a>
-                </div>
-            
-                
-                <div class="mdui-chip">
-                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
-                    <a href="https://github.com/ChaoiteC" class="mdui-chip-title">GitHub</a>
-                </div>
-            
-                
-                <div class="mdui-chip">
-                    <span class="mdui-chip-icon"><i class="iconfont icon-steam"></i></span>
-                    <a target="_blank" rel="noopener" href="https://steamcommunity.com/id/Tanbai/" class="mdui-chip-title">Steam</a>
-                </div>
-            
-                
-                <div class="mdui-chip">
-                    <span class="mdui-chip-icon"><i class="iconfont icon-twitter"></i></span>
-                    <a target="_blank" rel="noopener" href="https://twitter.com/ChaoiteC" class="mdui-chip-title">Twitter</a>
-                </div>
-            
-        </div>
-        <ul class="mdui-list" mdui-collapse="{accordion: true}">
-            <li class="mdui-collapse-item">
-                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
-                    <div class="mdui-list-item-icon">
-                        <i class="iconfont icon-link"></i>
-                    </div>
-                    <div class="mdui-list-item-content">友情链接</div>
-                    <div class="mdui-collapse-item-arrow">
-                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
-                    </div>
-                </div>
-                <ul id="linksList" class="mdui-collapse-item-body mdui-list mdui-list-dense">
-                    
-                        <a target="_blank" rel="noopener" href="https://garybear.cn/hexo-theme-meadow/" class="mdui-list-item mdui-ripple">
-                            Meadow说明文档
-                        </a>
-                    
-                </ul>
-            </li>
-        </ul>
-    </div>
+        
+    </nav>
+</header>
 
-    <div class="mdui-divider"></div>
-    
-    
-</aside>
-  
-  <main id="main-contain" class="mdui-container mdui-m-t-5">
-    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
-  <header class="mdui-card-media">
-    
-    
-      <div class="post-header"> 
-  <a class="post-header-title" href="/ChaoiteC/ChaoiteC.github.io/2024/02/01/%E5%9F%BA%E4%BA%8E%E4%B8%80%E9%98%B6%E4%BA%92%E8%A1%A5%E6%BB%A4%E6%B3%A2%E7%9A%84MPU6050%E5%A7%BF%E6%80%81%E8%A7%A3%E7%AE%97/">基于一阶互补滤波的MPU6050姿态解算</a>
-  <div class="post-header-meta">
-    <span>
-      <span class="iconfont icon-calendar"></span>
-      发布于:&nbsp;2024-02-01
-    </span>
-    <span>
-      <span class="iconfont icon-calendar-check"></span>
-      更新于:&nbsp;2024-02-01
-    </span>
-    <span>
-      <span class="iconfont icon-folder"></span>
-      分类于:&nbsp;
-    </span>
-    
-      <span>
-        <span class="iconfont icon-eye"></span>
-        阅读次数:&nbsp;
-        <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
-      </span>
-    
-  </div>
-</div>   
-    
-
-
-
-    
-    
-    <div class="mdui-card-menu">
-    
-      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
-      <ul class="mdui-menu" id="share_menu">
-        <li class="mdui-menu-item">
-          <a href="http://service.weibo.com/share/share.php?appkey=&title=基于一阶互补滤波的MPU6050姿态解算&url=https://github.com/ChaoiteC/ChaoiteC.github.io/2024/02/01/%E5%9F%BA%E4%BA%8E%E4%B8%80%E9%98%B6%E4%BA%92%E8%A1%A5%E6%BB%A4%E6%B3%A2%E7%9A%84MPU6050%E5%A7%BF%E6%80%81%E8%A7%A3%E7%AE%97/&pic=https://github.com/ChaoiteC/ChaoiteC.github.io/ChaoiteC/ChaoiteC.github.io/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
-        </li>
-        <li class="mdui-menu-item">
-          <a href="https://twitter.com/intent/tweet?text=基于一阶互补滤波的MPU6050姿态解算&url=https://github.com/ChaoiteC/ChaoiteC.github.io/2024/02/01/%E5%9F%BA%E4%BA%8E%E4%B8%80%E9%98%B6%E4%BA%92%E8%A1%A5%E6%BB%A4%E6%B3%A2%E7%9A%84MPU6050%E5%A7%BF%E6%80%81%E8%A7%A3%E7%AE%97/&via=ChaoiteC" target="_blank" class="mdui-ripple">分享到 Twitter</a>
-        </li>
-        <li class="mdui-menu-item">
-          <a href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/ChaoiteC/ChaoiteC.github.io/2024/02/01/%E5%9F%BA%E4%BA%8E%E4%B8%80%E9%98%B6%E4%BA%92%E8%A1%A5%E6%BB%A4%E6%B3%A2%E7%9A%84MPU6050%E5%A7%BF%E6%80%81%E8%A7%A3%E7%AE%97/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
-        </li>
-        <li class="mdui-menu-item">
-          <a href="https://plus.google.com/share?url=https://github.com/ChaoiteC/ChaoiteC.github.io/2024/02/01/%E5%9F%BA%E4%BA%8E%E4%B8%80%E9%98%B6%E4%BA%92%E8%A1%A5%E6%BB%A4%E6%B3%A2%E7%9A%84MPU6050%E5%A7%BF%E6%80%81%E8%A7%A3%E7%AE%97/" target="_blank" class="mdui-ripple">分享到 Google+</a>
-        </li>
-        <li class="mdui-menu-item">
-          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://github.com/ChaoiteC/ChaoiteC.github.io/2024/02/01/%E5%9F%BA%E4%BA%8E%E4%B8%80%E9%98%B6%E4%BA%92%E8%A1%A5%E6%BB%A4%E6%B3%A2%E7%9A%84MPU6050%E5%A7%BF%E6%80%81%E8%A7%A3%E7%AE%97/&title=基于一阶互补滤波的MPU6050姿态解算" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
-        </li>
-        <li class="mdui-menu-item">
-          <a href="http://connect.qq.com/widget/shareqq/index.html?site=cRbWIt&#39;s Blog&title=基于一阶互补滤波的MPU6050姿态解算&summary=&pics=https://github.com/ChaoiteC/ChaoiteC.github.io/ChaoiteC/ChaoiteC.github.io/null&url=https://github.com/ChaoiteC/ChaoiteC.github.io/2024/02/01/%E5%9F%BA%E4%BA%8E%E4%B8%80%E9%98%B6%E4%BA%92%E8%A1%A5%E6%BB%A4%E6%B3%A2%E7%9A%84MPU6050%E5%A7%BF%E6%80%81%E8%A7%A3%E7%AE%97/" target="_blank" class="mdui-ripple">分享到 QQ</a>
-        </li>
-        <li class="mdui-menu-item">
-          <a href="https://telegram.me/share/url?url=https://github.com/ChaoiteC/ChaoiteC.github.io/2024/02/01/%E5%9F%BA%E4%BA%8E%E4%B8%80%E9%98%B6%E4%BA%92%E8%A1%A5%E6%BB%A4%E6%B3%A2%E7%9A%84MPU6050%E5%A7%BF%E6%80%81%E8%A7%A3%E7%AE%97/&text=基于一阶互补滤波的MPU6050姿态解算" target="_blank" class="mdui-ripple">分享到 Telegram</a>
-        </li>
-      </ul>
-    
-  </div>
-  </header>
-  
-  
-  
-  
-  
-  <div class="mdui-card-content mdui-typo mdui-p-x-4">
-    <h1 id="基于一阶互补滤波的MPU6050姿态解算"><a href="#基于一阶互补滤波的MPU6050姿态解算" class="headerlink" title="基于一阶互补滤波的MPU6050姿态解算"></a>基于一阶互补滤波的MPU6050姿态解算</h1><blockquote>
+    <main>
+    <div class="wrap min">
+        <section class="post-title">
+            <h2>基于一阶互补滤波的MPU6050姿态解算</h2>
+            <div class="post-meta">
+                <time class="date">2024.02.01</time>
+            
+            </div>
+        </section>
+        <article class="post-content">
+        
+            <h1 id="基于一阶互补滤波的MPU6050姿态解算"><a href="#基于一阶互补滤波的MPU6050姿态解算" class="headerlink" title="基于一阶互补滤波的MPU6050姿态解算"></a>基于一阶互补滤波的MPU6050姿态解算</h1><blockquote>
 <p>之前报名了第十八届全国大学生智能车竞赛的单车越野组别，但由于种种原因最终未能完赛。所以打算把自己做好的一部分发出来，同时也是对自己过去一个多学期生活的一点总结。</p>
 <p>代码基于<a target="_blank" rel="noopener" href="https://gitee.com/seekfree/CHV307_Library">逐飞科技的CH32V307开源库</a>。</p>
 </blockquote>
@@ -301,150 +100,71 @@
 <p>这篇博客最早于2023年8月3日凌晨<a target="_blank" rel="noopener" href="https://blog.csdn.net/CsdnAKinKo/article/details/132053654">在CSDN上</a>写成并发布。在这里略作了修改。</p>
 </blockquote>
 
-  </div>
-  <!--文末结束语-->
-  
-    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
-  
-  <!--页脚广告-->
-  
-  <div class="mdui-divider"></div>
-  
-  <nav>
+        </article>
+        <section class="post-near">
+            <ul>
+                
+                    <li>上一篇: 看完啦 (つд⊂)</li>
+                
+                
+                    <li>下一篇: <a href="/ChaoiteC/ChaoiteC.github.io/2024/02/01/hello-world/">Hello World</a></li>
+                
+            </ul>
+        </section>
+        
+            <section class="post-tags">
+            <a class="-none-link" href="/ChaoiteC/ChaoiteC.github.io/tags/MPU6050/" rel="tag">MPU6050</a><a class="-none-link" href="/ChaoiteC/ChaoiteC.github.io/tags/%E5%A7%BF%E6%80%81%E8%A7%A3%E7%AE%97/" rel="tag">姿态解算</a><a class="-none-link" href="/ChaoiteC/ChaoiteC.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">嵌入式</a><a class="-none-link" href="/ChaoiteC/ChaoiteC.github.io/tags/%E6%99%BA%E8%83%BD%E8%BD%A6%E7%AB%9E%E8%B5%9B/" rel="tag">智能车竞赛</a>
+            </section>
+        
     
+        <section class="post-author">
+        
+            <figure class="author-avatar">
+                <img src="https://avatars.githubusercontent.com/u/82901570?v=4" alt="ChaoiteC" />
+            </figure>
+        
+            <div class="author-info">
+                <h4>ChaoiteC</h4>
+                <p>冲碎岩层的 是萌芽的生命</p>
+            </div>
+        </section>
     
-      <a rel="next" class="post-nav-item mdui-float-right" href="/ChaoiteC/ChaoiteC.github.io/2024/02/01/hello-world/">
-        <span>Hello World</span>
-        <i class="iconfont icon-angle-right"></i>
-      </a>
-    
-  </nav>
-</article>
-
-
-
-
-  <div class="toc-button"  style="z-index: 100;">
-    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
-    <ul class="mdui-menu" id="toc">
-      <li class="mdui-menu-item">
-        <a href="/ChaoiteC/ChaoiteC.github.io/2024/02/01/%E5%9F%BA%E4%BA%8E%E4%B8%80%E9%98%B6%E4%BA%92%E8%A1%A5%E6%BB%A4%E6%B3%A2%E7%9A%84MPU6050%E5%A7%BF%E6%80%81%E8%A7%A3%E7%AE%97/" id="toc-header" class="mdui-ripple">文章目录</a>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E4%B8%80%E9%98%B6%E4%BA%92%E8%A1%A5%E6%BB%A4%E6%B3%A2%E7%9A%84MPU6050%E5%A7%BF%E6%80%81%E8%A7%A3%E7%AE%97"><span class="toc-number">1.</span> <span class="toc-text">基于一阶互补滤波的MPU6050姿态解算</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E4%B8%80%E9%98%B6%E4%BA%92%E8%A1%A5%E6%BB%A4%E6%B3%A2"><span class="toc-number">1.1.</span> <span class="toc-text">为什么需要一阶互补滤波</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-number">1.2.</span> <span class="toc-text">自定义结构体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E9%80%9F%E5%BA%A6%E8%AE%A1%E4%B8%8E%E9%99%80%E8%9E%BA%E4%BB%AA%E7%9A%84%E5%88%86%E5%88%AB%E8%A7%A3%E7%AE%97"><span class="toc-number">1.3.</span> <span class="toc-text">加速度计与陀螺仪的分别解算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E9%80%9F%E5%BA%A6%E8%AE%A1"><span class="toc-number">1.3.1.</span> <span class="toc-text">加速度计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%80%E8%9E%BA%E4%BB%AA"><span class="toc-number">1.3.2.</span> <span class="toc-text">陀螺仪</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E9%98%B6%E4%BA%92%E8%A1%A5%E6%BB%A4%E6%B3%A2%E8%BF%87%E7%A8%8B"><span class="toc-number">1.4.</span> <span class="toc-text">一阶互补滤波过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E8%A7%A3%E7%AE%97%E4%B9%8B%E5%89%8D%E2%80%A6"><span class="toc-number">1.5.</span> <span class="toc-text">在解算之前…</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%BC%E4%B8%8A%E6%89%80%E8%BF%B0"><span class="toc-number">1.6.</span> <span class="toc-text">综上所述</span></a></li></ol></li></ol>
-      </li>
-    </ul>
-  </div>
-
-
-
-    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
-      <div class="mdui-tab" mdui-tab>
-        
-          <a href="#comment-tab0" class="mdui-ripple">gitalk</a>
-        
-          <a href="#comment-tab1" class="mdui-ripple">livere</a>
-        
-      </div>
-      
-        <div id="comment-tab0" class="mdui-p-a-2">
-          <div id="gitalk-container"></div>
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
-<script>
-  var gitalk = new Gitalk({
-    clientID: '',
-    clientSecret: '',
-    repo: '',
-    owner: '',
-    admin: [''],
-    id:  md5(location.pathname) ,
-    distractionFreeMode: 'true',
-  });
-  gitalk.render('gitalk-container');
-</script>
-        </div>
-      
-        <div id="comment-tab1" class="mdui-p-a-2">
-          <div id="lv-container" data-id="city" data-uid="">
-  <script type="text/javascript">
-    (function (d, s) {
-      var j, e = d.getElementsByTagName(s)[0];
-      if (typeof LivereTower === 'function') { return; }
-      j = d.createElement(s);
-      j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-      j.async = true;
-      e.parentNode.insertBefore(j, e);
-    })(document, 'script');
-  </script>
-  <noscript>Please enable JavaScript to view the comments powered by LiveRe.</noscript>
-</div>
-        </div>
-      
     </div>
+</main>
 
-  </main>
-  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
-  <div class="mdui-container">
-    <div class="mdui-row">
-      
-        <a href="https://beian.miit.gov.cn" rel="noopener" target="_blank"></a>
-      
-      <span>
-        &copy; 2024 - 2024 
-        
-          <span style="color:#d9333f" class="iconfont icon-heart"></span>
-        
-        ChaoiteC
-      </span>
+    <footer>
+    <div class="buttons">
+        <a class="to-top" href="#"></a>
     </div>
-    <div class="mdui-row">
-      
-        <div class="mdui-col-xs-6 mdui-text-right">
-          <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
-        </div>
-        <div class="mdui-col-xs-6 mdui-text-left">
-          <span>Theme: <a href="https://github.com/kb1000fx/Meadow" rel="noopener" target="_blank">Meadow</a></span>
-        </div>
-      
+    <div class="wrap min">
+        <section class="widget">
+            <div class="row">
+                <div class="col-m-4">
+                    <h3 class="title-recent">最新文章：</h3>
+                    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/ChaoiteC/ChaoiteC.github.io/2024/02/01/%E5%9F%BA%E4%BA%8E%E4%B8%80%E9%98%B6%E4%BA%92%E8%A1%A5%E6%BB%A4%E6%B3%A2%E7%9A%84MPU6050%E5%A7%BF%E6%80%81%E8%A7%A3%E7%AE%97/">基于一阶互补滤波的MPU6050姿态解算</a></li><li class="post-list-item"><a class="post-list-link" href="/ChaoiteC/ChaoiteC.github.io/2024/02/01/hello-world/">Hello World</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-date">时光机：</h3>
+                    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/ChaoiteC/ChaoiteC.github.io/archives/2024/02/">February 2024</a></li></ul>
+                </div>
+                <div class="col-m-4">
+                    <h3 class="title-tags">标签云：</h3>
+                    <a href="/ChaoiteC/ChaoiteC.github.io/tags/MPU6050/" style="font-size: 10px;">MPU6050</a> <a href="/ChaoiteC/ChaoiteC.github.io/tags/%E5%A7%BF%E6%80%81%E8%A7%A3%E7%AE%97/" style="font-size: 10px;">姿态解算</a> <a href="/ChaoiteC/ChaoiteC.github.io/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" style="font-size: 10px;">嵌入式</a> <a href="/ChaoiteC/ChaoiteC.github.io/tags/%E6%99%BA%E8%83%BD%E8%BD%A6%E7%AB%9E%E8%B5%9B/" style="font-size: 10px;">智能车竞赛</a>
+                </div>
+            </div>
+        </section>
+        <section class="sub-footer">
+            <p>© 2024 <a href="/ChaoiteC/ChaoiteC.github.io/">cRbWIt&#39;s Blog</a>. All Rights Reserved. Theme By <a href="https://github.com/Dreamer-Paul/Hingle" target="_blank" rel="nofollow">Hingle</a>.</p>
+        </section>
     </div>
-    <div class="mdui-row">
-      
-        <div class="mdui-col-xs-6 mdui-text-right">
-          <span id="busuanzi_container_site_uv" style="display: none;"> <span class="iconfont icon-user"></span>总访客量 <span id="busuanzi_value_site_uv"></span></span>
-        </div>
-        <div class="mdui-col-xs-6 mdui-text-left">
-          <span id="busuanzi_container_site_pv" style="display: none;"> <span class="iconfont icon-eye"></span>总访问量 <span id="busuanzi_value_site_pv"></span></span>
-        </div>
-      
-    </div>
- </div>
 </footer>
-  
-  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
-  
-  
-
-    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+<script src="/ChaoiteC/ChaoiteC.github.io/static/kico.js"></script>
+<script src="/ChaoiteC/ChaoiteC.github.io/static/hingle.js"></script>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
-    <script>mermaid.initialize({
-        startOnLoad: true,
-        theme: "default"
-    });</script>
+<script>var hingle = new Paul_Hingle({"copyright":true,"night":true});</script>
 
-
-
-
-    
-<script src="/ChaoiteC/ChaoiteC.github.io/js/mdui.min.v1.0.0.js"></script>
-
-
-
-
-<script src="/ChaoiteC/ChaoiteC.github.io/js/meadow.js"></script>
-
-</body>
-</html >
+  </body>
+</html>
