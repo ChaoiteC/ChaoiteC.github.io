@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>基于一阶互补滤波的MPU6050姿态解算 - 碳白</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="ChaoiteC,"> 
+    <meta name="description" content="当我们通过MPU6050进行姿态解算时，MPU6050给了我们两组数据：一组来自加速度计，一组来自陀螺仪。两个传感器的数据都可以独自求得小车此时的角度，但它们也各自存在问题：加速度计比较敏感，由振动,"> 
+    <meta name="author" content="ChaoiteC"> 
+    <link rel="alternative" href="atom.xml" title="碳白" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    <meta name="twitter:image:src" content="https://raw.githubusercontent.com/ChaoiteC/ChaoiteC.github.io/main/img/cover.jpg"/>
+    <meta name="twitter:creator" content="@ChaoiteC"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="基于一阶互补滤波的MPU6050姿态解算 - 碳白"/>
+    <meta name="twitter:description" content="当我们通过MPU6050进行姿态解算时，MPU6050给了我们两组数据：一组来自加速度计，一组来自陀螺仪。两个传感器的数据都可以独自求得小车此时的角度，但它们也各自存在问题：加速度计比较敏感，由振动,"/>
+    <meta property="og:image" content="https://raw.githubusercontent.com/ChaoiteC/ChaoiteC.github.io/main/img/cover.jpg"/>
+    <meta property="og:image:alt" content="当我们通过MPU6050进行姿态解算时，MPU6050给了我们两组数据：一组来自加速度计，一组来自陀螺仪。两个传感器的数据都可以独自求得小车此时的角度，但它们也各自存在问题：加速度计比较敏感，由振动,"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="600"/>
+    <meta property="og:site_name" content="碳白"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="基于一阶互补滤波的MPU6050姿态解算 - 碳白"/>
+    <meta property="og:description" content="当我们通过MPU6050进行姿态解算时，MPU6050给了我们两组数据：一组来自加速度计，一组来自陀螺仪。两个传感器的数据都可以独自求得小车此时的角度，但它们也各自存在问题：加速度计比较敏感，由振动,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <link rel="stylesheet" href="//unpkg.com/heti/umd/heti.min.css">
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <script src="//unpkg.com/heti/umd/heti-addon.min.js"></script>
+    <script>
+    const heti = new Heti('.heti');
+    heti.autoSpacing();
+    </script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">碳白</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://ChaoiteC.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle heti heti--classic">基于一阶互补滤波的MPU6050姿态解算</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title heti heti--classic">基于一阶互补滤波的MPU6050姿态解算</h1>
+        <div class="stuff heti heti--classic">
+            <span>二月 01, 2024</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/MPU6050/" rel="tag">MPU6050</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%A7%BF%E6%80%81%E8%A7%A3%E7%AE%97/" rel="tag">姿态解算</a></li></ul>
+
+
+        </div>
+        <div class="content markdown heti heti--classic">
+            <p>当我们通过MPU6050进行姿态解算时，MPU6050给了我们两组数据：一组来自加速度计，一组来自陀螺仪。<span id="more"></span>两个传感器的数据都可以独自求得小车此时的角度，但它们也各自存在问题：加速度计比较敏感，由振动产生的瞬时误差比较大；陀螺仪积分得到的角度虽然受振动影响比较小，但随着时间的增加，积分误差和温度漂移会逐渐增大。从另一角度加以解释，就是加速度计主要受到高频噪声的影响，而陀螺仪主要受到低频噪声的影响。这两个传感器正好可以弥补相互的缺点。短时间用陀螺仪比较准确，长时间用加速度计比较准确；运动时用陀螺仪比较准确，静止时用加速度计比较准确，也就是互补。通过一阶互补滤波，我们滤除加速度计的高频部分，滤除陀螺仪的低频部分，并将这两个数据以一定权重相加，就能得到比较准确的角度了。</p>
+<p>你能在其他资料里面看到二阶互补滤波和卡尔曼滤波。相比于这两种算法，一阶互补滤波的优势在于计算量少、收敛速度较快，对性能薄弱的芯片比较友好。虽然没有二阶互补滤波和卡尔曼滤波那么精确，但是对于我们的用途来说还在能接受的范围以内。</p>
+<p>下面我们结合代码来说明基于一阶互补滤波的姿态解算的流程。</p>
+<h2 id="自定义结构体"><a href="#自定义结构体" class="headerlink" title="自定义结构体"></a>自定义结构体</h2><p>为了让代码看起来更加优雅，我们先定义这样一个结构体，并且声明对应的变量，来储存我们需要的数据。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">    <span class="type">float</span> Roll;<span class="comment">//解算所得角度</span></span><br><span class="line">    <span class="type">float</span> Pitch;</span><br><span class="line">    <span class="type">float</span> Yaw;</span><br><span class="line"></span><br><span class="line">    <span class="type">float</span> Roll_a;<span class="comment">//加速度计计算得到的角度</span></span><br><span class="line">    <span class="type">float</span> Pitch_a;</span><br><span class="line">    <span class="type">float</span> Roll_g;<span class="comment">//陀螺仪计算得到的角速度</span></span><br><span class="line">    <span class="type">float</span> Pitch_g;</span><br><span class="line"></span><br><span class="line">    <span class="type">float</span> lastRoll;<span class="comment">//上次的解算角度</span></span><br><span class="line">    <span class="type">float</span> lastPitch;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> offset_gx;<span class="comment">//陀螺仪零漂值</span></span><br><span class="line">    <span class="type">int</span> offset_gy;</span><br><span class="line">    <span class="type">int</span> offset_gz;</span><br><span class="line">&#125; IMU;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">IMU IMU_Data;</span><br></pre></td></tr></table></figure>
+
+<h2 id="加速度计与陀螺仪的分别解算"><a href="#加速度计与陀螺仪的分别解算" class="headerlink" title="加速度计与陀螺仪的分别解算"></a>加速度计与陀螺仪的分别解算</h2><p>在这里我们以小车的Roll角（翻滚角），也就是单车需要保持平衡的那个角度为例，来解释如何通过加速度计与陀螺仪分别计算出角度。额外注意的是，本文的X轴指向小车前方，如下图所示，但别的资料不一定，在查阅其他资料时请多加留心。</p>
+<p><img src="https://img-blog.csdnimg.cn/737d630b8f374474ba48cebbdab13863.jpeg" alt="三轴指示"></p>
+<h3 id="加速度计"><a href="#加速度计" class="headerlink" title="加速度计"></a>加速度计</h3><p>加速度计通过以下方式计算Roll角：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IMU_Data.Roll_a = <span class="built_in">atan2</span>(mpu6050_acc_x, mpu6050_acc_z) / (PI / <span class="number">180</span>);</span><br></pre></td></tr></table></figure>
+<p>​<br>对数学上的推导过程感兴趣的朋友可以参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/hbsyaaa/article/details/108186892">这篇博客</a>，在这里不展开说明。总之，mpu6050_acc_x与mpu6050_acc_z是我们通过逐飞库提供的mpu6050_get_acc函数读取到的直接数据，通过上面的数学运算，我们得到的是根据加速度计算得的Roll角Roll_a，单位为度。atan2函数定义在math.h标准库中，使用前要先包含这个库。</p>
+<p>如果要计算Pitch角（俯仰角），只需要把x改为y即可。遗憾的是，由于原理上的限制，我们无法用加速度计算出Yaw角（航向角）。</p>
+<h3 id="陀螺仪"><a href="#陀螺仪" class="headerlink" title="陀螺仪"></a>陀螺仪</h3><p>陀螺仪的角速度转换为实际物理数据：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IMU_Data.Roll_g = -(mpu6050_gyro_y) / <span class="number">14.3</span>;</span><br></pre></td></tr></table></figure>
+
+<p>通过这个运算，我们能把MPU6050提供的陀螺仪数据转换成实际的物理数据，单位是度每秒，也就是角速度。我们只需要对角速度进行积分，就能得到角度了，这个处理我们放在一阶互补滤波的函数中。代码中是否要加负号取决于你的传感器芯片，14.3这个数字由陀螺仪的量程得出，如果用逐飞库的mpu6050_gyro_transition函数来转换的话应该就不用关心这个数字了。</p>
+<p>同样的，如果要计算Pitch角，只需要把y改为x即可。你甚至可以用Z轴的数据算出Yaw角，不过，就像我们上面提到的，随着时间的推移，误差将不断增大。要弥补这一误差，你可以结合GNSS（全球卫星导航系统）的数据，但这不在本文的讨论范围之内。</p>
+<h2 id="一阶互补滤波过程"><a href="#一阶互补滤波过程" class="headerlink" title="一阶互补滤波过程"></a>一阶互补滤波过程</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> Ka 0.80  <span class="comment">// 加速度解算权重</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> dt 0.005 <span class="comment">// 采样间隔（单位：秒）</span></span></span><br><span class="line"> </span><br><span class="line"><span class="type">float</span> <span class="title function_">FOCF</span><span class="params">(<span class="type">float</span> acc_m, <span class="type">float</span> gyro_m, <span class="type">float</span>* last_angle)</span> &#123;</span><br><span class="line">    <span class="type">float</span> temp_angle;</span><br><span class="line">    temp_angle = Ka * acc_m + (<span class="number">1</span> - Ka) * (*last_angle + gyro_m * dt);</span><br><span class="line">    *last_angle = temp_angle;</span><br><span class="line">    <span class="keyword">return</span> temp_angle;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">IMU_Data.Roll = FOCF(IMU_Data.Roll_a, IMU_Data.Roll_g, &amp;IMU_Data.lastRoll);</span><br></pre></td></tr></table></figure>
+
+<p>在分别处理好加速度计与陀螺仪的数据之后，现在要将两个数据互补在一起。我们定义一个名为FOCF的函数，用于处理这一数学过程。这个函数接受处理好的数据和上次解算结果的储存地址作为参数。</p>
+<p>首先，我们将陀螺仪解算出的角速度与采样间隔相乘，得到自上次采样以来的角度变化量。通过将上一次解算结果与这个变化量相加，我们就能得到由陀螺仪计算得到的新的Roll角。</p>
+<p>接着，我们将加速度解算所得的角度与陀螺仪解算所得的角度按照权重因子进行加权相加，从而得到最终的解算结果。这个权重因子需要根据实际情况进行调整。</p>
+<p>在计算完成后，我们更新*last_angle，以备下一次解算使用。最终，将计算得到的角度作为结果返回，你就能在其他函数中读取IMU_Data.Roll，最终保持你的单车的平衡。</p>
+<p>Pitch角也是同理。</p>
+<h2 id="在解算之前…"><a href="#在解算之前…" class="headerlink" title="在解算之前…"></a>在解算之前…</h2><p>不幸的，你接上陀螺仪后发现，即使你不去触动它，它的数据也不为0，这是工艺上不可避免的误差造成的。幸运的是，这个误差在每一次运行过程中变化不大，让我们可以用简单的方法把它的影响降到最小。</p>
+<p>现在我们定义一个去除零漂的函数IMU_offset，并在每次单片机启动时调用它。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> OFFSET_COUNT 200</span></span><br><span class="line"> </span><br><span class="line"><span class="type">void</span> <span class="title function_">IMU_offset</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; OFFSET_COUNT; i++) &#123;</span><br><span class="line">        system_delay_ms(<span class="number">5</span>);</span><br><span class="line">        <span class="keyword">if</span> (mpu6050_gyro_x == mpu6050_gyro_y) &#123;</span><br><span class="line">            i--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            IMU_Data.offset_gx += mpu6050_gyro_x;</span><br><span class="line">            IMU_Data.offset_gy += mpu6050_gyro_y;</span><br><span class="line">            IMU_Data.offset_gz += mpu6050_gyro_z;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    IMU_Data.offset_gx /= OFFSET_COUNT;</span><br><span class="line">    IMU_Data.offset_gy /= OFFSET_COUNT;</span><br><span class="line">    IMU_Data.offset_gz /= OFFSET_COUNT;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>既然变化不大，我们只需要求其平均值，然后在每次采样时减去它就好了。这个函数就起求平均值这个作用。OFFSET_COUNT是你要采集的数据量，只要取一个恰当的数值即可。system_delay_ms(5)中的5是你规定的采样间隔。</p>
+<p>考虑到实际应用中有时会出现杜邦线接触不良的情况，在代码中做了一个简单的判断。当发生接触不良的时候，X轴数据会与Y轴数据相同（通常均为0，但偶有意外），我们就认为数据是无效的。这是在被杜邦线困扰已久之后摸索出的野路子，权当参考。</p>
+<h2 id="综上所述"><a href="#综上所述" class="headerlink" title="综上所述"></a>综上所述</h2><p>当我们完成了上面所有的代码之后，是时候调用它们了。去零漂的函数要在启动时调用，也就是main函数的开头部分。为了保证我们的采样间隔恒定不变，我们需要将函数放在定时器的中断处理函数中执行。代码分为两个部分：第一个部分你要从MPU6050中读取原始的数据，并将陀螺仪的原始数据减去你计算出的零漂值；第二个部分你要分别处理加速度计与陀螺仪的数据，然后进行一阶互补滤波。</p>
+<p>（感觉这玩意各种意义上都写得好烂……）</p>
+<blockquote>
+<p>之前报名了第十八届全国大学生智能车竞赛的单车越野组别，但由于种种原因最终未能完赛。所以打算把自己做好的一部分发出来，同时也是对自己过去一个多学期生活的一点总结。</p>
+<p>代码基于<a target="_blank" rel="noopener" href="https://gitee.com/seekfree/CHV307_Library">逐飞科技的CH32V307开源库</a>。</p>
+</blockquote>
+<blockquote>
+<p>​ 参赛的代码早些时候已经上传到<a target="_blank" rel="noopener" href="https://github.com/ChaoiteC/BIKE_OFF_ROAD">Github</a>。</p>
+</blockquote>
+<blockquote>
+<p>这篇博客最早于2023年8月3日凌晨<a target="_blank" rel="noopener" href="https://blog.csdn.net/CsdnAKinKo/article/details/132053654">在CSDN上</a>写成并发布。在这里略作了修改。</p>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="https://raw.githubusercontent.com/ChaoiteC/ChaoiteC.github.io/main/music/Memories_of_Kindness.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+            <div class = "full-cc  heti heti--classic">
+    <br>
+    <p xmlns:cc="http://creativecommons.org/ns#" style="display: flex; align-items: center;">除非另有说明，本站所有作品均根据
+        <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display: inline-flex; align-items: center;">
+            <span style="margin-left: 3px;">CC BY-NC-SA 4.0</span>
+            <img style="height:22px;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1">
+            <img style="height:22px;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1">
+            <img style="height:22px;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1">
+            <img style="height:22px;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1">
+        </a>
+        协议进行许可。
+    </p>
+    <br>
+</div>
+<div class="simple-cc  heti heti--classic">
+    <br>
+    <p>除非另有声明，本站所有作品均根据
+        <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer">
+            CC BY-NC-SA 4.0
+        </a>
+        协议进行许可。
+    </p>
+    <br>
+</div>
+
+        
+        
+    <div id="gitalk-container" class="comment link heti heti--classic"
+		data-enable="true"
+        data-ae="true"
+        data-ci="c3693dc3964835b0a1e7"
+        data-cs="51ee6a93541365b558b7d72c1fe0b994f989ed84"
+        data-r="Blog_Gitalk"
+        data-o="ChaoiteC"
+        data-a="ChaoiteC"
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="heti heti--classic side">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-number">1.</span> <span class="toc-text">自定义结构体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E9%80%9F%E5%BA%A6%E8%AE%A1%E4%B8%8E%E9%99%80%E8%9E%BA%E4%BB%AA%E7%9A%84%E5%88%86%E5%88%AB%E8%A7%A3%E7%AE%97"><span class="toc-number">2.</span> <span class="toc-text">加速度计与陀螺仪的分别解算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E9%80%9F%E5%BA%A6%E8%AE%A1"><span class="toc-number">2.1.</span> <span class="toc-text">加速度计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%80%E8%9E%BA%E4%BB%AA"><span class="toc-number">2.2.</span> <span class="toc-text">陀螺仪</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E9%98%B6%E4%BA%92%E8%A1%A5%E6%BB%A4%E6%B3%A2%E8%BF%87%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">一阶互补滤波过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E8%A7%A3%E7%AE%97%E4%B9%8B%E5%89%8D%E2%80%A6"><span class="toc-number">4.</span> <span class="toc-text">在解算之前…</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%BC%E4%B8%8A%E6%89%80%E8%BF%B0"><span class="toc-number">5.</span> <span class="toc-text">综上所述</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y86NF37QTS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y86NF37QTS');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>

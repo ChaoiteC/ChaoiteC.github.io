@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>基于Hexo在GitHub Page上构建静态博客的方法 - 碳白</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="ChaoiteC,"> 
+    <meta name="description" content="或许说这是本站从无到有搭建的记录更为准确。
+
+
+前言在寒假的中期，百般聊赖之下，终于是打算拥有一个自己的博客网站。恰好在校中简略学习了网站制作的知识，使我得到了足够的勇气去面对挑战，于是便有了你眼前,"> 
+    <meta name="author" content="ChaoiteC"> 
+    <link rel="alternative" href="atom.xml" title="碳白" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    <meta name="twitter:image:src" content="https://raw.githubusercontent.com/ChaoiteC/ChaoiteC.github.io/main/img/cover.jpg"/>
+    <meta name="twitter:creator" content="@ChaoiteC"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="基于Hexo在GitHub Page上构建静态博客的方法 - 碳白"/>
+    <meta name="twitter:description" content="或许说这是本站从无到有搭建的记录更为准确。
+
+
+前言在寒假的中期，百般聊赖之下，终于是打算拥有一个自己的博客网站。恰好在校中简略学习了网站制作的知识，使我得到了足够的勇气去面对挑战，于是便有了你眼前,"/>
+    <meta property="og:image" content="https://raw.githubusercontent.com/ChaoiteC/ChaoiteC.github.io/main/img/cover.jpg"/>
+    <meta property="og:image:alt" content="或许说这是本站从无到有搭建的记录更为准确。
+
+
+前言在寒假的中期，百般聊赖之下，终于是打算拥有一个自己的博客网站。恰好在校中简略学习了网站制作的知识，使我得到了足够的勇气去面对挑战，于是便有了你眼前,"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="600"/>
+    <meta property="og:site_name" content="碳白"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="基于Hexo在GitHub Page上构建静态博客的方法 - 碳白"/>
+    <meta property="og:description" content="或许说这是本站从无到有搭建的记录更为准确。
+
+
+前言在寒假的中期，百般聊赖之下，终于是打算拥有一个自己的博客网站。恰好在校中简略学习了网站制作的知识，使我得到了足够的勇气去面对挑战，于是便有了你眼前,"/>
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <link rel="stylesheet" href="//unpkg.com/heti/umd/heti.min.css">
+    <script>window.searchDbPath = "/search.xml";</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <script src="//unpkg.com/heti/umd/heti-addon.min.js"></script>
+    <script>
+    const heti = new Heti('.heti');
+    heti.autoSpacing();
+    </script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">碳白</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://ChaoiteC.github.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle heti heti--classic">基于Hexo在GitHub Page上构建静态博客的方法</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title heti heti--classic">基于Hexo在GitHub Page上构建静态博客的方法</h1>
+        <div class="stuff heti heti--classic">
+            <span>二月 08, 2024</span>
+            
+
+        </div>
+        <div class="content markdown heti heti--classic">
+            <p>或许说这是本站从无到有搭建的记录更为准确。</p>
+<span id="more"></span>
+<hr>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在寒假的中期，百般聊赖之下，终于是打算拥有一个自己的博客网站。恰好在校中简略学习了网站制作的知识，使我得到了足够的勇气去面对挑战，于是便有了你眼前的这个网站与这篇文章。当然，本文力求使非信息技术相关专业的读者也能轻易上手，因此不需要抱有过多的恐惧。只要你强烈地希望拥有一个自己的博客网站，并且愿意付诸行动，那么我相信这篇文章一定能帮助到你。</p>
+<p><em>本文所有操作均在Windows 11系统下进行。</em></p>
+<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p><a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他标记语言）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<h4 id="安装前提"><a href="#安装前提" class="headerlink" title="安装前提"></a>安装前提</h4><p>在安装Hexo之前，我们必须要安装下面两个软件。</p>
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/"><strong>Node.js</strong></a>是能够在服务器端运行 JavaScript 的开放源代码、跨平台执行环境。</p>
+<p><a target="_blank" rel="noopener" href="https://git-scm.com/"><strong>Git</strong></a>是一个自由开源的分布式版本控制系统，设计用于快速高效地处理从小型到超大型的所有项目。</p>
+<h4 id="编辑器-VS-Code（可选）"><a href="#编辑器-VS-Code（可选）" class="headerlink" title="编辑器 VS Code（可选）"></a>编辑器 VS Code（可选）</h4><p><a target="_blank" rel="noopener" href="https://code.visualstudio.com/">Visual Studio Code</a>（简称 VS Code）是一款由微软开发且跨平台的免费源代码编辑器。该软件以扩展的方式支持语法高亮、代码自动补全（又称 IntelliSense）、代码重构功能，并且内置了命令行工具和 Git 版本控制系统。用户可以更改主题和键盘快捷方式实现个性化设置，也可以通过内置的扩展程序商店安装其他扩展以拓展软件功能。</p>
+<p>这个软件不是必需的，它只是便于你编辑代码、使用Markdown语法，同时简化一些Git相关的操作。但你也可以有自己的想法。</p>
+<h4 id="博客框架-Hexo"><a href="#博客框架-Hexo" class="headerlink" title="博客框架 Hexo"></a>博客框架 Hexo</h4><p>在上述两个必要软件安装完成之后，通过在桌面（或者其他文件夹）右键菜单中选择git bash here，输入下面命令来安装Hexo：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p><img src="/images/1.jpg" alt="在桌面右键菜单中选择git bash here"></p>
+<p>完成这个操作之后，我们的设备上已经安装了Hexo。</p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><blockquote>
+<p><strong>参考资料</strong><br><br></p>
+<p>快速搭建个人博客 —— 保姆级教程(<a target="_blank" rel="noopener" href="https://pdpeng.github.io/2022/01/19/setup-personal-blog">https://pdpeng.github.io/2022/01/19/setup-personal-blog</a>)</p>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="https://raw.githubusercontent.com/ChaoiteC/ChaoiteC.github.io/main/music/Memories_of_Kindness.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+            <div class = "full-cc  heti heti--classic">
+    <br>
+    <p xmlns:cc="http://creativecommons.org/ns#" style="display: flex; align-items: center;">除非另有说明，本站所有作品均根据
+        <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display: inline-flex; align-items: center;">
+            <span style="margin-left: 3px;">CC BY-NC-SA 4.0</span>
+            <img style="height:22px;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1">
+            <img style="height:22px;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1">
+            <img style="height:22px;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1">
+            <img style="height:22px;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1">
+        </a>
+        协议进行许可。
+    </p>
+    <br>
+</div>
+<div class="simple-cc  heti heti--classic">
+    <br>
+    <p>除非另有声明，本站所有作品均根据
+        <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer">
+            CC BY-NC-SA 4.0
+        </a>
+        协议进行许可。
+    </p>
+    <br>
+</div>
+
+        
+        
+    <div id="gitalk-container" class="comment link heti heti--classic"
+		data-enable="true"
+        data-ae="true"
+        data-ci="c3693dc3964835b0a1e7"
+        data-cs="51ee6a93541365b558b7d72c1fe0b994f989ed84"
+        data-r="Blog_Gitalk"
+        data-o="ChaoiteC"
+        data-a="ChaoiteC"
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="heti heti--classic side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Hexo"><span class="toc-number">2.</span> <span class="toc-text">安装Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%89%8D%E6%8F%90"><span class="toc-number">2.1.</span> <span class="toc-text">安装前提</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E5%99%A8-VS-Code%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">编辑器 VS Code（可选）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6-Hexo"><span class="toc-number">2.3.</span> <span class="toc-text">博客框架 Hexo</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">初始化</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y86NF37QTS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y86NF37QTS');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>
