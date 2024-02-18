@@ -168,7 +168,7 @@ h1.title {font-size:30px;color:#333;line-height:1.3;position:relative;font-weigh
 .article > div {width:100%;padding:30px 0;margin:0 auto;}
 .article .main {width:700px;}
 .article .side {align-self:flex-start;flex:0 0 220px;}
-.article .toc {width:200px;height:100%;position:fixed;top:60px;/*right:100px;*/padding:1em;line-height:2.3;overflow-y:auto;}
+.article .toc {width:320px;height:100%;position:fixed;top:60px;/*right:100px*/;padding:1em;line-height:2.3;overflow-y:auto;}
 .article .toc .toc-item:hover {font-weight:900;}
 .article .toc li a {display:inline-block;color:#737373;text-decoration:none;transition:color,padding 0.2s ease-in-out;}
 /*.article .toc li a:hover {padding-left:8px;border-left:3px solid black;}*/
@@ -238,7 +238,7 @@ h1.title {font-size:30px;color:#333;line-height:1.3;position:relative;font-weigh
 .content > h1:first-child,.content > h2:first-child,.content > h3:first-child,.content > h4:first-child,.content > h5:first-child,.content > h6:first-child {margin-top:0;}
 .content img {cursor:pointer;}
 .content pre,.content .highlight {background:#2d2d2d;margin:1.6rem 0;padding:0.8rem 0.8rem;border-style:solid;border-width:1px 0;overflow:auto;color:#ccc;line-height:20px;}
-.content .gutter {display:none;}
+.content .gutter pre{/*display:none;*/background-color: #2d2d2d !important;}
 .content .highlight .gutter pre {color:#666;font-size:0.9rem;}
 .content code,.content pre {font-family:"Source Code Pro",monospace}
 .content code {background:rgba(99,99,99,0.07);color:#ef459c;padding:1px 2px;border-radius:2px;}
@@ -278,6 +278,12 @@ pre .keyword,pre .javascript .function {color:#cc99cc;}
 
 .toc li {list-style-type: none !important;}
 
+.icp {max-width: none !important;display: inline-block;text-align: center;width: 100%;margin: 32px 0;}
+.icp img{display: inline;}
+.icp a{color: #222;text-decoration: none;}
+.icp-t a{color: #222;text-decoration: none;}
+.icp-t .travel{color: rgb(231,123,142);}
+
 /* Responsive style */
 @media screen and (max-width:1200px) {
   #header > div {width:900px;margin:0 auto;}
@@ -294,6 +300,7 @@ pre .keyword,pre .javascript .function {color:#cc99cc;}
   .here {left:60px;bottom:50px;}
   .article{width:100%;}
   .article .main{width:94%;}
+  .article .heti {max-width: none !important;}
   .article .side {display:none}
   .comment .gt-btn-public .gt-btn-text:after{content:"";}
   .full-cc {display: none;}
@@ -314,11 +321,13 @@ pre .keyword,pre .javascript .function {color:#cc99cc;}
   .else h3 + p {margin:10px 30px 0 20px;}
   .here {position:static;margin:20px 0 20px 20px;}
   .article{width:100%;}
+  .article .heti {max-width: none !important;}
   .article .main{width:94%;}
   .article .side {display:none}
   .comment .gt-btn-public .gt-btn-text:after{content:"";}
   .full-cc {display: none;}
   .simple-cc {display: block;}
+  .content p {text-indent: 0em; /* 设置首行缩进为0个字母 'em' 的大小 */}
 }
 @media screen and (max-width:780px) {
   #header {top:40px;}
@@ -336,11 +345,13 @@ pre .keyword,pre .javascript .function {color:#cc99cc;}
   .icon-pause,.icon-play {left:50px;}
   .comment.link {width:140px;padding:5px 0;}
   .article{width:100%;}
+  .article .heti {max-width: none !important;}
   .article .main{width:94%;}
   .article .side {display:none}
   .comment .gt-btn-public .gt-btn-text:after{content:"";}
   .full-cc {display: none;}
   .simple-cc {display: block;}
+  .content p {text-indent: 0em; /* 设置首行缩进为0个字母 'em' 的大小 */}
 }
 @media screen and (max-width:480px) {
   #post0 p:first-child {display:block;}
@@ -353,11 +364,13 @@ pre .keyword,pre .javascript .function {color:#cc99cc;}
   .content table {font-size:smaller;}
   .content table tr td {padding:6px;}
   .article {width:100%;}
+  .article .heti {max-width: none !important;}
   .article .main{width:94%;}
   .article .side {display:none}
   .comment .gt-btn-public .gt-btn-text:after{content:"";}
   .full-cc {display: none;}
   .simple-cc {display: block;}
+  .content p {text-indent: 0em; /* 设置首行缩进为0个字母 'em' 的大小 */}
 }
 
 @media (prefers-color-scheme: dark) {
@@ -399,7 +412,9 @@ pre .keyword,pre .javascript .function {color:#cc99cc;}
 
   .article .toc li a {color:#ddd;}
 
-
+  .icp a{color: #fff;}
+  .icp-t a{color: #fff;}
+  .icp-t .travel{color: rgb(231,123,142);}
 
   .post-tags-list-item {background:rgba(102,128,153,0.75);}
   .post-tags-list-link {color:#eee;}
