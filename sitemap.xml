@@ -83,6 +83,27 @@
 
   
   <url>
+    <loc>https://chaoitec.github.io/tags/R-18/</loc>
+    <lastmod>2024-02-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chaoitec.github.io/tags/%E7%BD%91%E7%AB%99%E8%AE%BE%E8%AE%A1/</loc>
+    <lastmod>2024-02-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://chaoitec.github.io/tags/%E6%99%BA%E8%83%BD%E8%BD%A6%E7%AB%9E%E8%B5%9B/</loc>
+    <lastmod>2024-02-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://chaoitec.github.io/tags/MPU6050/</loc>
     <lastmod>2024-02-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -99,14 +120,14 @@
 
   
   <url>
-    <loc>https://chaoitec.github.io/categories/Hexo/</loc>
+    <loc>https://chaoitec.github.io/categories/%E5%88%9B%E4%BD%9C/</loc>
     <lastmod>2024-02-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://chaoitec.github.io/categories/%E6%99%BA%E8%83%BD%E8%BD%A6%E7%AB%9E%E8%B5%9B/</loc>
+    <loc>https://chaoitec.github.io/categories/%E6%8A%80%E6%9C%AF/</loc>
     <lastmod>2024-02-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

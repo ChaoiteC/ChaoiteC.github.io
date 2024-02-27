@@ -7,7 +7,10 @@ https://chaoitec.github.io/404.html
 https://chaoitec.github.io/about/index.html
 https://chaoitec.github.io/categories/index.html
 https://chaoitec.github.io/
+https://chaoitec.github.io/tags/R-18/
+https://chaoitec.github.io/tags/%E7%BD%91%E7%AB%99%E8%AE%BE%E8%AE%A1/
+https://chaoitec.github.io/tags/%E6%99%BA%E8%83%BD%E8%BD%A6%E7%AB%9E%E8%B5%9B/
 https://chaoitec.github.io/tags/MPU6050/
 https://chaoitec.github.io/tags/%E5%A7%BF%E6%80%81%E8%A7%A3%E7%AE%97/
-https://chaoitec.github.io/categories/Hexo/
-https://chaoitec.github.io/categories/%E6%99%BA%E8%83%BD%E8%BD%A6%E7%AB%9E%E8%B5%9B/
+https://chaoitec.github.io/categories/%E5%88%9B%E4%BD%9C/
+https://chaoitec.github.io/categories/%E6%8A%80%E6%9C%AF/
