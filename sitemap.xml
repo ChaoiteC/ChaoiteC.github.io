@@ -11,6 +11,24 @@
   </url>
   
   <url>
+    <loc>https://chaoitec.github.io/hello-world/</loc>
+    
+    <lastmod>2024-02-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chaoitec.github.io/naito-shiti%E7%9A%84%E4%B8%80%E8%A7%92/</loc>
+    
+    <lastmod>2024-02-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chaoitec.github.io/%E5%9F%BA%E4%BA%8Ehexo%E5%9C%A8github-pages%E4%B8%8A%E6%9E%84%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%96%B9%E6%B3%95/</loc>
     
     <lastmod>2024-02-27</lastmod>
@@ -29,6 +47,15 @@
   </url>
   
   <url>
+    <loc>https://chaoitec.github.io/404.html</loc>
+    
+    <lastmod>2024-02-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://chaoitec.github.io/about/index.html</loc>
     
     <lastmod>2024-02-27</lastmod>
@@ -39,33 +66,6 @@
   
   <url>
     <loc>https://chaoitec.github.io/categories/index.html</loc>
-    
-    <lastmod>2024-02-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chaoitec.github.io/hello-world/</loc>
-    
-    <lastmod>2024-02-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chaoitec.github.io/%E7%94%A8%E8%8A%AF%E7%89%87%E8%AE%A9%E5%A5%BD%E5%A7%AC%E5%8F%8B%E5%AF%B9%E6%88%91%E8%A8%80%E5%90%AC%E8%AE%A1%E4%BB%8E/</loc>
-    
-    <lastmod>2024-02-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chaoitec.github.io/404.html</loc>
     
     <lastmod>2024-02-27</lastmod>
     
