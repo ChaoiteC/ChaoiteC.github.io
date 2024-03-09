@@ -3,7 +3,7 @@
   <entry>
     <title>SIC实验室23届第八次学习目标</title>
     <url>/sic%E5%AE%9E%E9%AA%8C%E5%AE%A423%E5%B1%8A%E7%AC%AC%E5%85%AB%E6%AC%A1%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/</url>
-    <content><![CDATA[<p><img src="/images/SIC.png" alt="SIC-LOGO"></p>
+    <content><![CDATA[<p><img src="https://raw.githubusercontent.com/ChaoiteC/ChaoiteC.github.io/main/images/SIC.png" alt="SIC-LOGO"></p>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>很高兴还能与各位在新学期再次见面！</p>
 <p>考虑到：</p>
 <ul>
@@ -13,7 +13,7 @@
 <li>Markdown是一种开放标准，拥有庞大的生态系统和社区支持。</li>
 <li>在PDF文档上复制代码存在困难。</li>
 </ul>
-<p>从本次学习目标开始，我们不再使用pdf格式进行发布，而改为使用md格式或txt格式。盼望各位同学理解。你也可以访问<a href="https://karubon.moe/sic%E5%AE%9E%E9%AA%8C%E5%AE%A423%E5%B1%8A%E7%AC%AC%E5%85%AB%E6%AC%A1%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/">karubon.moe</a>或<a href="https://karubon.pages.dev/sic%E5%AE%9E%E9%AA%8C%E5%AE%A423%E5%B1%8A%E7%AC%AC%E5%85%AB%E6%AC%A1%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/">其镜像站（速度较快）</a>获取这份文件的在线版本。</p>
+<p>从本次学习目标开始，我们不再使用pdf格式进行发布，而改为使用md格式或txt格式。盼望各位同学理解。</p>
 <h3 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h3><p>上学期的最后，我们学习了矩阵键盘与LCD1602，现在我们继续学习关于51单片机的后续内容。</p>
 <h4 id="中断系统"><a href="#中断系统" class="headerlink" title="中断系统"></a>中断系统</h4><p>在单片机应用系统中，中断技术主要用于实时监测与控制，也就是要求单片机能及时地响应中断请求源提出的服务请求，进行快速响应并及时处理，因此，我们必须了解单片机的中断技术。</p>
 <p>单片机的中断是由单片机片内的中断系统来实现的，当中断请求源（简称中断源）发出中断请求时，如果中断请求被允许的话，单片机暂时中止当前正在执行的主程序，转到中断服务程序处理中断服务请求，处理完中断服务请求后，再回到原来被中止的程序之处（断点），继续执行被中断的主程序。</p>
@@ -33,7 +33,14 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">例如：</span><br><span class="line"></span><br><span class="line">输入：&quot;147258369789456123&quot;、&quot;987654321963852741&quot;</span><br><span class="line">输出：&quot;1134912691753308864&quot;</span><br></pre></td></tr></table></figure>
 
 <p>代码的框架已经在下面给出，你只需要补全add函数中的代码。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">#define MAX_DIGITS 1000</span><br><span class="line"></span><br><span class="line">// 函数声明</span><br><span class="line">void add(char num1[], char num2[], char result[]);</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    char num1[MAX_DIGITS], num2[MAX_DIGITS], result[MAX_DIGITS + 1];</span><br><span class="line"></span><br><span class="line">    printf(&quot;输入第一个大整数：&quot;);</span><br><span class="line">    scanf(&quot;%s&quot;, num1);</span><br><span class="line"></span><br><span class="line">    printf(&quot;输入第二个大整数：&quot;);</span><br><span class="line">    scanf(&quot;%s&quot;, num2);</span><br><span class="line"></span><br><span class="line">    // 调用函数进行大整数加法</span><br><span class="line">    add(num1, num2, result);</span><br><span class="line"></span><br><span class="line">    printf(&quot;两个大整数的和为：%s\n&quot;, result);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 大整数加法函数</span><br><span class="line">void add(char num1[], char num2[], char result[]) &#123;</span><br><span class="line"></span><br><span class="line">    // 在这里补全代码</span><br><span class="line"></span><br><span class="line">    // 注意结果数组以空字符结尾</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;string.h&gt;</span><br><span class="line"></span><br><span class="line">#define MAX_DIGITS 1000</span><br><span class="line"></span><br><span class="line">// 函数声明</span><br><span class="line">void add(char num1[], char num2[], char result[]);</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    char num1[MAX_DIGITS], num2[MAX_DIGITS], result[MAX_DIGITS + 1];</span><br><span class="line"></span><br><span class="line">    printf(&quot;输入第一个大整数：&quot;);</span><br><span class="line">    scanf(&quot;%s&quot;, num1);</span><br><span class="line"></span><br><span class="line">    printf(&quot;输入第二个大整数：&quot;);</span><br><span class="line">    scanf(&quot;%s&quot;, num2);</span><br><span class="line"></span><br><span class="line">    // 调用函数进行大整数加法</span><br><span class="line">    add(num1, num2, result);</span><br><span class="line"></span><br><span class="line">    printf(&quot;两个大整数的和为：%s\n&quot;, result);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 大整数加法函数</span><br><span class="line">void add(char num1[], char num2[], char result[]) &#123;</span><br><span class="line"></span><br><span class="line">    // 在这里补全代码</span><br><span class="line"></span><br><span class="line">    // 注意结果数组以空字符结尾</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+
+<blockquote>
+<p><em>立足培养、重在参与、鼓励探索、追求卓越</em></p>
+</blockquote>
+]]></content>
       <categories>
         <category>SIC实验室</category>
       </categories>
@@ -197,7 +204,7 @@
 <p>本文内容不涉及选购服务器，但如果你意欲购买，请注意域名注册商和服务器提供商主体应该同在境内或境外，若一方在境内一方在境外，备案时可能会产生问题。</p>
 </blockquote>
 <p>选择一个合适的域名注册商是很重要的，至少是关乎钱包（）。我比较欣赏的是Cloudflare，他们也提供Pages服务和自动部署功能，而且配置其实比GitHub简单得多，在他们那里购买域名的话配置应该也是很简单的。但我最后选择的是Godaddy，为什么呢？因为Cloudflare注册不了.moe域名，让我感到非常遗憾。</p>
-<p>另外在Godaddy购买的时候可以选择买一个￥9&#x2F;月的企业邮箱服务，让你可以快速拥有一个（一堆）以自己的域名为主机名的邮箱！例如我的邮箱：<a href="mailto:&#107;&#97;&#114;&#x75;&#98;&#111;&#110;&#119;&#x61;&#105;&#x74;&#111;&#64;&#x6b;&#97;&#114;&#117;&#98;&#111;&#110;&#x2e;&#x6d;&#x6f;&#x65;">&#107;&#97;&#114;&#x75;&#98;&#111;&#110;&#119;&#x61;&#105;&#x74;&#111;&#64;&#x6b;&#97;&#114;&#117;&#98;&#111;&#110;&#x2e;&#x6d;&#x6f;&#x65;</a>。</p>
+<p>另外在Godaddy购买的时候可以选择买一个￥9&#x2F;月的企业邮箱服务，让你可以快速拥有一个（一堆）以自己的域名为主机名的邮箱！例如我的邮箱：<a href="mailto:&#107;&#x61;&#114;&#117;&#x62;&#111;&#110;&#119;&#97;&#x69;&#116;&#x6f;&#x40;&#x6b;&#x61;&#114;&#117;&#98;&#x6f;&#x6e;&#46;&#109;&#111;&#x65;">&#107;&#x61;&#114;&#117;&#x62;&#111;&#110;&#119;&#97;&#x69;&#116;&#x6f;&#x40;&#x6b;&#x61;&#114;&#117;&#98;&#x6f;&#x6e;&#46;&#109;&#111;&#x65;</a>。</p>
 <p>所以本文会以Godaddy为例，介绍如何购买和配置域名。</p>
 <h4 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h4><p>访问<a href="https://www.godaddy.com/zh-sg">Godaddy官网</a>。先注册一个账号，然后搜索你想要的域名（例如本站的域名karubon.moe），如果这个域名没有被占用，你就会看到标价和加入购物车的按键。</p>
 <p>就像在网上购买一件商品一样一路继续，填写个人信息和支付方式，看清楚订单里的商品再付款，千万不要花钱购买自己不想要的东西。</p>
