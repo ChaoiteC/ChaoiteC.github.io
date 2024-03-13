@@ -49,6 +49,91 @@
       </tags>
   </entry>
   <entry>
+    <title>SIC实验室23届第九次学习目标</title>
+    <url>/sic%E5%AE%9E%E9%AA%8C%E5%AE%A423%E5%B1%8A%E7%AC%AC%E4%B9%9D%E6%AC%A1%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/</url>
+    <content><![CDATA[<p><img src="/images/SIC.png" alt="SIC-LOGO"></p>
+<p><strong><center>- 立足培养、重在参与、鼓励探索、追求卓越 -</center></strong></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>51单片机的学习到中断系统与定时器就先告一段落，后面的内容我们较少应用，就不再安排学习任务，感兴趣的同学随时可以使用实验室内开发板自行学习。</p>
+<p>本文档内容较长、图片较多，同学们可以访问<a href="https://karubon.moe/sic%E5%AE%9E%E9%AA%8C%E5%AE%A423%E5%B1%8A%E7%AC%AC%E4%B9%9D%E6%AC%A1%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/">karubon.moe（慢到你可能无法访问）</a>或<a href="https://karubon.pages.dev/sic%E5%AE%9E%E9%AA%8C%E5%AE%A423%E5%B1%8A%E7%AC%AC%E4%B9%9D%E6%AC%A1%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/">其镜像站（速度相对快，但还是很慢）</a>获得良好的阅读体验。</p>
+<p>全国大学生智能汽车竞赛是本实验室的核心项目，我们过去一个多学期以来所学习的C语言、51单片机让我们获得了参与竞赛的软件基础知识。现在，我们开始了解关于组队参加全国大学生智能汽车竞赛，你还需要具备的前置知识。</p>
+<h2 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h2><h3 id="团队协作"><a href="#团队协作" class="headerlink" title="团队协作"></a>团队协作</h3><p>我们已经知道，这个竞赛并不是可以一人完成的竞赛<del>（或者说如果有这样的实力，我们就不会出现在这里）</del>，因此，一个类型的赛题，我们会组成一只小组——通常是两名软件手与一名硬件手协作完成。这就要求我们的软件手们必须掌握协作的能力和<em>工具</em>。</p>
+<p>能力需要慢慢磨合，所以先来掌握工具吧。</p>
+<h4 id="Git——版本控制系统"><a href="#Git——版本控制系统" class="headerlink" title="Git——版本控制系统"></a>Git——版本控制系统</h4><p>Git是一种可以智能追踪文件中的更改的版本控制系统（VCS）。在你和组员同时对同一文件进行更改时，Git的价值就体现出来了。</p>
+<p>版本控制系统跟踪我们在项目上进行协作时的更改历史记录。当我们对项目进行更改时，可以随时恢复项目的任何早期版本。</p>
+<p>我们可以查看项目历史记录以找出：</p>
+<ul>
+<li>进行了哪些更改？</li>
+<li>谁进行了更改？</li>
+<li>何时进行了更改？</li>
+<li>为什么需要更改？</li>
+</ul>
+<p>VCS为每个贡献者提供统一且一致的项目视图，显示已经在进行中的工作。查看透明的更改历史记录、谁进行了更改，以及它们如何为项目开发做出贡献，可帮助团队成员在独立工作时保持一致。</p>
+<p>在分布式版本控制系统中，每个开发人员都有项目和项目历史记录的完整副本。与曾经流行的集中式版本控制系统不同，DVCS不需要与中央存储库的持续连接。Git是世界上最流行的分布式版本控制系统。</p>
+<p>Git允许我们在一个地方查看任何项目的更改、决策和进度的整个时间线。从我们访问项目历史记录的那一刻起，就拥有了理解它并开始参与所需的所有上下文。</p>
+<p>我们在每一个地方上传和下载代码。使用像Git这样的DVCS，工作可以随时随地进行。</p>
+<p>Git项目包含与项目关联的文件和文件夹的整个集合，以及每个文件的修订历史记录。文件历史记录在时间上显示为快照，称为提交。提交可以组织成多个开发行，称为分支。</p>
+<p>由于Git是DVCS，因此存储库是独立的单元，任何拥有存储库副本的人都可以访问整个代码库及其历史记录。</p>
+<p>使用命令行或其他易用性接口，Git存储库还允许：与历史记录交互、克隆存储库、创建分支、提交、合并、比较不同版本的代码更改等。</p>
+<br>
+
+<p>本文不会介绍Git的光荣历史或者它的工作原理，感兴趣的同学可以访问Git官方的<a href="https://git-scm.com/book/zh/v2">文档</a>了解更多。</p>
+<hr>
+
+<p>现在我们安装它。</p>
+<p>访问<a href="https://git-scm.com/">Git官网</a>，点击页面中间偏左下的Downloads，然后点击Downloads for Windows下载，按默认选项安装即可。</p>
+<p>安装Git之后，要做的第一件事就是设置你的用户名和邮件地址。这一点很重要，因为每一个Git提交都会用到这些信息，它们会写入到你的每次提交中，你无法再更改这些提交中的信息。</p>
+<p>在桌面（或者其他文件夹）右键菜单中（可能需要“显示更多选项”）选择git bash here，输入并执行下面命令（美元符号不用输入）：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name &quot;YourName&quot;</span><br><span class="line">$ git config --global user.email YourEmail@example.com</span><br></pre></td></tr></table></figure>
+
+<p>记得修改为你自己的信息（），如果忘了，再来一次。<code>--global</code>参数将使更改是全局性的，之后你在这个系统上的操作都会默认使用此信息。</p>
+<h4 id="Gitee或者GitHub——代码托管平台"><a href="#Gitee或者GitHub——代码托管平台" class="headerlink" title="Gitee或者GitHub——代码托管平台"></a>Gitee或者GitHub——代码托管平台</h4><p><a href="https://gitee.com/">Gitee（码云）</a>是开源中国于2013年推出的基于Git的代码托管服务，目前已经成为国内知名的代码托管平台，提供中华人民共和国本土化的代码托管服务。</p>
+<p><a href="https://github.com/">GitHub</a>是一种基于云的平台，可在其中存储、共享并与他人一起编写代码。</p>
+<p>通过将代码存储在GitHub上的“存储库”中，你将可以：</p>
+<ul>
+<li>“展示或共享”你的工作。</li>
+<li>持续“跟踪和管理”对代码的更改。</li>
+<li>让其他人“审查”你的代码，并提出改进建议。</li>
+<li>在共享的项目中开展“协作”，无需担心这些更改会在准备好集成更改之前影响协作者的工作。</li>
+<li>协作式工作是GitHub最基本的功能之一，该功能由开源软件Git实现，而GitHub是以该软件为基础进行构建的。</li>
+</ul>
+<p>其实我会比较推荐GitHub，文档清晰齐全，比Gitee使用方便很多。但由于<abbr title="GitHub遭国家数据跨境安全网关阻断">众所周知的原因</abbr>，这里我们采用Gitee作示范。</p>
+<blockquote>
+<p>克服众所周知的原因事实上并不困难，使用GitHub是完全可行的，我的个人项目和网站也都托管在GitHub上。</p>
+<br>
+
+<p>但真正的问题是什么呢？<span class="heti-em">你和你的组员必须使用同一平台完成协作</span>。而且由于Gitee和GitHub储存库的默认分支不同，在两边仓库同时上传的时候可能会遇到困难,虽然这是可以解决的。</p>
+</blockquote>
+<h5 id="注册Gitee账号"><a href="#注册Gitee账号" class="headerlink" title="注册Gitee账号"></a>注册Gitee账号</h5><p>进入Gitee网站，从首页右上角点击“注册”或点击“加入Gitee”即可注册个人账号。</p>
+<p>在Gitee的注册界面依次填入各项，注意邮箱应该和你在Git中填写的完全一致。</p>
+<h5 id="创建第一个仓库"><a href="#创建第一个仓库" class="headerlink" title="创建第一个仓库"></a>创建第一个仓库</h5><p>在注册完成并成功登录Gitee账号后，我们可以开始创建自己的第一个仓库。</p>
+<ol>
+<li>通过网站右上角的「+」号，选择“新建仓库”，进入新建仓库页面。</li>
+<li>在新建仓库页面填写仓库信息。仓库相关概念说明如下：<ul>
+<li>仓库名称：仓库的名称，用于仓库命名。</li>
+<li>归属：仓库归属账户，创建成功后该账户默认为仓库的拥有者（管理员）。</li>
+<li>路径：仓库的git访问路径，由用户个性地址+仓库路径名称组成。创建仓库后用户将通过该路径访问仓库。</li>
+<li>仓库介绍：仓库的简单介绍。</li>
+<li>是否开源：设置仓库是否为公开仓库，公开仓库对所有人可见，私有仓库仅限仓库成员可见。</li>
+<li>选择语言：仓库主要开发用的编程语言。</li>
+<li>添加<code>.gitignore</code>：系统默认提供的git忽略提交的文件模板，设置<code>.gitignore</code>后将默认忽略指定目录&#x2F;文件到仓库。</li>
+<li>添加开源许可证：如果仓库为公开仓库，可以添加设置仓库的开源协议，作为对当前项目仓库和衍生项目仓库许可约束，开源许可证决定他人可以如何使用你的这个开源项目。</li>
+<li>Readme：项目仓库自述文档，通常包含有软件的描述或使用的注意事项。</li>
+<li>使用模板文件初始化仓库：使用Issue或Pull Request文件模板初始化仓库。</li>
+</ul>
+</li>
+<li>点击“创建”，即可在Gitee上创建你的第一个仓库。</li>
+</ol>
+<p>就像这样——</p>
+<p><img src="/images/14.jpg" alt="创建一个仓库"></p>
+]]></content>
+      <categories>
+        <category>SIC实验室</category>
+      </categories>
+      <tags>
+        <tag>SIC实验室学习目标</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -204,7 +289,7 @@
 <p>本文内容不涉及选购服务器，但如果你意欲购买，请注意域名注册商和服务器提供商主体应该同在境内或境外，若一方在境内一方在境外，备案时可能会产生问题。</p>
 </blockquote>
 <p>选择一个合适的域名注册商是很重要的，至少是关乎钱包（）。我比较欣赏的是Cloudflare，他们也提供Pages服务和自动部署功能，而且配置其实比GitHub简单得多，在他们那里购买域名的话配置应该也是很简单的。但我最后选择的是Godaddy，为什么呢？因为Cloudflare注册不了.moe域名，让我感到非常遗憾。</p>
-<p>另外在Godaddy购买的时候可以选择买一个￥9&#x2F;月的企业邮箱服务，让你可以快速拥有一个（一堆）以自己的域名为主机名的邮箱！例如我的邮箱：<a href="mailto:&#107;&#x61;&#114;&#117;&#x62;&#111;&#110;&#119;&#97;&#x69;&#116;&#x6f;&#x40;&#x6b;&#x61;&#114;&#117;&#98;&#x6f;&#x6e;&#46;&#109;&#111;&#x65;">&#107;&#x61;&#114;&#117;&#x62;&#111;&#110;&#119;&#97;&#x69;&#116;&#x6f;&#x40;&#x6b;&#x61;&#114;&#117;&#98;&#x6f;&#x6e;&#46;&#109;&#111;&#x65;</a>。</p>
+<p>另外在Godaddy购买的时候可以选择买一个￥9&#x2F;月的企业邮箱服务，让你可以快速拥有一个（一堆）以自己的域名为主机名的邮箱！例如我的邮箱：<a href="mailto:&#107;&#97;&#x72;&#x75;&#x62;&#x6f;&#x6e;&#119;&#97;&#105;&#116;&#111;&#64;&#x6b;&#97;&#x72;&#x75;&#x62;&#x6f;&#x6e;&#46;&#x6d;&#111;&#101;">&#107;&#97;&#x72;&#x75;&#x62;&#x6f;&#x6e;&#119;&#97;&#105;&#116;&#111;&#64;&#x6b;&#97;&#x72;&#x75;&#x62;&#x6f;&#x6e;&#46;&#x6d;&#111;&#101;</a>。</p>
 <p>所以本文会以Godaddy为例，介绍如何购买和配置域名。</p>
 <h4 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h4><p>访问<a href="https://www.godaddy.com/zh-sg">Godaddy官网</a>。先注册一个账号，然后搜索你想要的域名（例如本站的域名karubon.moe），如果这个域名没有被占用，你就会看到标价和加入购物车的按键。</p>
 <p>就像在网上购买一件商品一样一路继续，填写个人信息和支付方式，看清楚订单里的商品再付款，千万不要花钱购买自己不想要的东西。</p>
