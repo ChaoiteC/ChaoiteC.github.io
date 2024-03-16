@@ -192,7 +192,7 @@
 <hr>
 
 <p>现在我们来演示如何通过VS Code初始化仓库、拉取和推送代码。</p>
-<h5 id="初始化仓库"><a href="#初始化仓库" class="headerlink" title="初始化仓库"></a>初始化仓库</h5><p>打开一个文件夹，在侧边栏中选择源代码管理。如果文件夹没有初始化Git，VSC会提示<code>当前打开的文件夹中没有Git存储库</code>。</p>
+<h5 id="初始化仓库和拉取代码"><a href="#初始化仓库和拉取代码" class="headerlink" title="初始化仓库和拉取代码"></a>初始化仓库和拉取代码</h5><p>打开一个文件夹，在侧边栏中选择源代码管理。如果文件夹没有初始化Git，VSC会提示<code>当前打开的文件夹中没有Git存储库</code>。</p>
 <p><img src="/images/18.png" alt="没有Git存储库"></p>
 <p>这时我们选择「初始化仓库」，VS Code将自动执行相关的Git指令，完成仓库初始化。</p>
 <p>接下来点击“源代码管理”栏右侧的“更多操作键”&gt;远程&gt;添加远程存储库，将仓库URL<code><a href="https://gitee.com/%E7%94%A8%E6%88%B7%E4%B8%AA%E6%80%A7%E5%9C%B0%E5%9D%80/hello-gitee.git">https://gitee.com/用户个性地址/hello-gitee.git</a></code>输入到屏幕正上方的输入框中，按下回车，接着提供存储库名称（这里是<code>hello-gitee</code>），将远程存储库添加到Git中。</p>
@@ -208,6 +208,9 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git checkout --track hello-gitee/master</span><br></pre></td></tr></table></figure>
 
 <p>现在可以点击“源代码管理”栏右侧的“更多操作键”&gt;拉取 来从远程存储库中拉取（pull）代码到本地。</p>
+<h5 id="推送代码"><a href="#推送代码" class="headerlink" title="推送代码"></a>推送代码</h5><p>在我们修改了代码之后，需要将其推送（push）到远程储存库，使他人可以查看和下载。</p>
+<p>一旦开始</p>
+<p><img src="https://code.visualstudio.com/assets/docs/sourcecontrol/overview/gutter.png" alt="装订线指示器"></p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote>
 <p><a href="https://docs.github.com/zh/get-started">GitHub官方文档（https://docs.github.com/zh/get-started）</a><br><a href="https://gitee.com/help">Gitee帮助中心（https://gitee.com/help）</a><br><a href="https://git-scm.com/book/zh/v2">Pro Git（https://git-scm.com/book/zh/v2）</a><br><a href="https://code.visualstudio.com/docs/sourcecontrol/overview">VS Code官方文档（https://code.visualstudio.com/docs/sourcecontrol/overview）</a></p>
 </blockquote>
@@ -375,7 +378,7 @@
 <p>本文内容不涉及选购服务器，但如果你意欲购买，请注意域名注册商和服务器提供商主体应该同在境内或境外，若一方在境内一方在境外，备案时可能会产生问题。</p>
 </blockquote>
 <p>选择一个合适的域名注册商是很重要的，至少是关乎钱包（）。我比较欣赏的是Cloudflare，他们也提供Pages服务和自动部署功能，而且配置其实比GitHub简单得多，在他们那里购买域名的话配置应该也是很简单的。但我最后选择的是Godaddy，为什么呢？因为Cloudflare注册不了.moe域名，让我感到非常遗憾。</p>
-<p>另外在Godaddy购买的时候可以选择买一个￥9&#x2F;月的企业邮箱服务，让你可以快速拥有一个（一堆）以自己的域名为主机名的邮箱！例如我的邮箱：<a href="mailto:&#x6b;&#97;&#114;&#117;&#x62;&#111;&#x6e;&#119;&#x61;&#x69;&#116;&#x6f;&#64;&#107;&#x61;&#x72;&#117;&#x62;&#x6f;&#x6e;&#46;&#x6d;&#111;&#x65;">&#x6b;&#97;&#114;&#117;&#x62;&#111;&#x6e;&#119;&#x61;&#x69;&#116;&#x6f;&#64;&#107;&#x61;&#x72;&#117;&#x62;&#x6f;&#x6e;&#46;&#x6d;&#111;&#x65;</a>。</p>
+<p>另外在Godaddy购买的时候可以选择买一个￥9&#x2F;月的企业邮箱服务，让你可以快速拥有一个（一堆）以自己的域名为主机名的邮箱！例如我的邮箱：<a href="mailto:&#107;&#x61;&#114;&#x75;&#x62;&#x6f;&#x6e;&#x77;&#x61;&#105;&#x74;&#111;&#64;&#x6b;&#x61;&#x72;&#117;&#98;&#x6f;&#x6e;&#x2e;&#x6d;&#111;&#x65;">&#107;&#x61;&#114;&#x75;&#x62;&#x6f;&#x6e;&#x77;&#x61;&#105;&#x74;&#111;&#64;&#x6b;&#x61;&#x72;&#117;&#98;&#x6f;&#x6e;&#x2e;&#x6d;&#111;&#x65;</a>。</p>
 <p>所以本文会以Godaddy为例，介绍如何购买和配置域名。</p>
 <h4 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h4><p>访问<a href="https://www.godaddy.com/zh-sg">Godaddy官网</a>。先注册一个账号，然后搜索你想要的域名（例如本站的域名karubon.moe），如果这个域名没有被占用，你就会看到标价和加入购物车的按键。</p>
 <p>就像在网上购买一件商品一样一路继续，填写个人信息和支付方式，看清楚订单里的商品再付款，千万不要花钱购买自己不想要的东西。</p>
