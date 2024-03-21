@@ -132,18 +132,16 @@
 <p>Git项目包含与项目关联的文件和文件夹的整个集合，以及每个文件的修订历史记录。文件历史记录在时间上显示为快照，称为提交。提交可以组织成多个开发行，称为分支。</p>
 <p>由于Git是DVCS，因此存储库是独立的单元，任何拥有存储库副本的人都可以访问整个代码库及其历史记录。</p>
 <p>使用命令行或其他易用性接口，Git存储库还允许：与历史记录交互、克隆存储库、创建分支、提交、合并、比较不同版本的代码更改等。</p>
-<br>
-
-<p>受限于篇幅，本文不介绍Git的光荣历史或者它的工作原理，感兴趣的同学可以访问Git官方的<a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2">文档</a>了解更多。</p>
+<p>受限于篇幅，本文不介绍Git的光荣历史或者它的底层原理，感兴趣的同学可以访问Git官方的<a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2">文档</a>了解更多。</p>
 <hr>
 
 <p>现在我们安装它。</p>
 <p>访问<a target="_blank" rel="noopener" href="https://git-scm.com/">Git官网</a>，点击页面中间偏左下的Downloads，然后点击Downloads for Windows下载，按默认选项安装即可。</p>
 <p>安装Git之后，要做的第一件事就是设置你的用户名和邮件地址。这一点很重要，因为每一个Git提交都会用到这些信息，它们会写入到你的每次提交中，你无法再更改这些提交中的信息。</p>
 <p>在桌面（或者其他文件夹）右键菜单中（可能需要“显示更多选项”）选择git bash here，输入并执行下面命令（美元符号不用输入）：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;YourName&quot;</span><br><span class="line">$ git config --global user.email YourEmail@example.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;YourName&quot;</span><br><span class="line">$ git config --global user.email &quot;YourEmail@example.com&quot;</span><br></pre></td></tr></table></figure>
 
-<p>记得修改为你自己的信息（），如果忘了，再来一次。<code>--global</code>参数将使更改是全局性的，之后你在这个系统上的操作都会默认使用此信息。</p>
+<p><code>--global</code>参数将使更改是全局性的，之后你在这个系统上的操作都会默认使用此信息。</p>
 <h4 id="Gitee或者GitHub——代码托管平台"><a href="#Gitee或者GitHub——代码托管平台" class="headerlink" title="Gitee或者GitHub——代码托管平台"></a>Gitee或者GitHub——代码托管平台</h4><p><a target="_blank" rel="noopener" href="https://gitee.com/">Gitee（码云）</a>是开源中国于2013年推出的基于Git的代码托管服务，目前已经成为国内知名的代码托管平台，提供中华人民共和国本土化的代码托管服务。</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/">GitHub</a>是一种基于云的平台，可在其中存储、共享并与他人一起编写代码。</p>
 <p>通过将代码存储在GitHub上的“存储库”中，你将可以：</p>
@@ -154,12 +152,12 @@
 <li>在共享的项目中开展“协作”，无需担心这些更改会在准备好集成更改之前影响协作者的工作。</li>
 <li>协作式工作是GitHub最基本的功能之一，该功能由开源软件Git实现，而GitHub是以该软件为基础进行构建的。</li>
 </ul>
-<p>其实我会比较推荐GitHub，文档清晰齐全，比Gitee使用方便很多。但由于<abbr title="GitHub遭国家数据跨境安全网关阻断">众所周知的原因</abbr>，这里我们采用Gitee作示范。</p>
+<p>其实我会更喜欢GitHub，文档清晰齐全，比Gitee使用方便很多。但由于<abbr title="GitHub遭国家数据跨境安全网关阻断">众所周知的原因</abbr>，这里我们采用Gitee作示范。</p>
 <blockquote>
-<p>克服众所周知的原因事实上并不困难，使用GitHub是完全可行的，我的个人项目和网站也都托管在GitHub上。</p>
+<p>克服众所周知的原因事实上并不困难，使用GitHub是可行的，你看到的这个网站正是托管在GitHub Pages上。</p>
 <br>
 
-<p>但真正的问题是什么呢？<span class="heti-em">你和你的组员通常需要使用同一仓库完成协作</span>。而且由于Gitee和GitHub储存库的默认分支不同，在两边仓库同时上传的时候可能会遇到困难,虽然这是可以解决的。</p>
+<p>但真正的问题是什么呢？<span class="heti-em">你和你的组员通常需要使用同一仓库完成协作</span>。而且由于Gitee和GitHub储存库的默认分支不同，在两边仓库同时上传的时候可能会有点小麻烦,虽然这是可以解决的。</p>
 </blockquote>
 <h5 id="注册Gitee账号"><a href="#注册Gitee账号" class="headerlink" title="注册Gitee账号"></a>注册Gitee账号</h5><p>进入Gitee网站，从首页右上角点击“注册”或点击“加入Gitee”即可注册个人账号。</p>
 <p>在Gitee的注册界面依次填入各项，注意邮箱应该和你在Git中填写的完全一致。</p>
@@ -224,7 +222,7 @@
 <p>修改代码之后：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git add .</span><br><span class="line">$ git commit -m &quot;第一次提交&quot;</span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
 
-<p>然后如果需要账号密码的话就输入账号密码，这样就完成了一次提交。此时，你可以在你的个人面板、仓库主页查看到你的提交记录。</p>
+<p>如果需要账号密码的话就输入账号密码，这样就完成了一次提交。此时，你可以在你的个人面板、仓库主页查看到你的提交记录。</p>
 <p>在新建仓库时，如果在Gitee平台仓库上已经存在readme或其他文件，在提交时可能会存在冲突，这时我们要选择是保留线上的文件或者舍弃线上的文件，如果要舍弃线上的文件，则在推送时进行强制推送<code>-f</code>（除非你知道自己在做什么，否则强烈不建议这么做）：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin master -f</span><br></pre></td></tr></table></figure>
 
@@ -292,8 +290,35 @@
 <h3 id="逐飞科技开源库"><a href="#逐飞科技开源库" class="headerlink" title="逐飞科技开源库"></a>逐飞科技开源库</h3><p><strong>成都逐飞科技有限公司</strong>长期以来是全国大学生智能汽车竞赛的协办单位，为竞赛提供大量的软硬件服务。逐飞科技为竞赛开发的开源库以简洁易懂、容易上手著称。</p>
 <p>在之后的日子里，我们会通过实验室内搭载英飞凌TC377芯片的逐飞学习板来继续学习关于竞赛的软件知识。</p>
 <p><img src="/images/ZF-PCB.jpg" alt="英飞凌TC377芯片的逐飞学习板"></p>
-<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><h2 id="学习任务"><a href="#学习任务" class="headerlink" title="学习任务"></a>学习任务</h2><p>各<span class="heti-em">组</span>在Gitee或GitHub上创建一个<em>公开</em>仓库，将组员以开发者或更高权限加入。</p>
-<p>编写代码，使核心板上4颗LED交替闪烁；通过主板上的拨码开关调整闪烁频率；按下主板上任意一个按键使四颗LED同时闪烁。</p>
+<h4 id="下载开源库"><a href="#下载开源库" class="headerlink" title="下载开源库"></a>下载开源库</h4><p>访问<a target="_blank" rel="noopener" href="https://gitee.com/seekfree/TC377_Library">逐飞TC377开源库的仓库首页</a>。点击文件目录右上角的“克隆&#x2F;下载”按钮。然后选择下载ZIP。</p>
+<p><img src="/images/23.jpg" alt="克隆/下载"></p>
+<blockquote>
+<p>注意到页面上提供了克隆的方法吧？感兴趣可以试试。</p>
+</blockquote>
+<h4 id="安装开发环境"><a href="#安装开发环境" class="headerlink" title="安装开发环境"></a>安装开发环境</h4><p>AURIX™ Development Studio（简称ADS）是基于TriCore™的AURIX™微控制器系列的免费集成开发环境（IDE）。它是一个全面的开发环境，包括Eclipse IDE、C编译器、多核调试器、Infineon低级驱动（iLLD），没有时间和代码大小限制，可以进行应用代码的编辑、编译和调试。</p>
+<p>结合众多的代码示例项目，该IDE可用于评估AURIX™微控制器系列的强大架构。</p>
+<p>它支持将Microsoft Windows 10作为主机操作系统（OS）。</p>
+<hr>
+
+<p>以上是官方介绍，但不得不说，AURIX™ Development Studio真的是很难用。ADS的下载方式写在开源库的README文档里面，请自行翻阅。</p>
+<p><em>使用前<mark>务必</mark>仔细阅读逐飞科技AURIX Development Studio使用说明书–逐飞科技 V1.6 PDF文档。</em></p>
+<p>安装和使用时的常见问题：</p>
+<ul>
+<li>工作空间&#x2F;路径（workplace）不能含有中文。</li>
+<li>工程文件夹需复制到工作空间。</li>
+<li>导入的工程需要设为ACTIVE状态，若是ACTIVE-DEBUG则可以正常编译，若是ACTIVE-DEFAULT不能编译会报错找不到路径。</li>
+<li>有时候导入空的开源库不行，尝试导入例程就正常，很玄学。</li>
+<li>添加文件可以直接拖拽，也可以在工程文件夹添加，添加后需要refresh。</li>
+<li>编译成功不代表能正常烧录，需安装DAS驱动，且正常显示为tricore…才可以。</li>
+</ul>
+<h4 id="开源库结构简介"><a href="#开源库结构简介" class="headerlink" title="开源库结构简介"></a>开源库结构简介</h4><blockquote>
+<p>感觉这一小节写得很烂？是的，我也这样认为。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">./Seekfree_TC377_Opensource_Library</span><br><span class="line">├── .setting 开发环境的各项设置。</span><br><span class="line">├── code 存放我们自行编写的代码的文件夹。</span><br><span class="line">├── libraries 开源库的主要代码文件夹。</span><br><span class="line">|   ├── doc 存放许可证和版本说明。</span><br><span class="line">|   ├── infineon_libraries 英飞凌程序库。</span><br><span class="line">|   ├── zf_common 逐飞库的通用部分。</span><br><span class="line">|   ├── zf_components “逐飞助手”软件的相关代码。</span><br><span class="line">|   ├── zf_device 各外置设备的驱动代码。</span><br><span class="line">|   └── zf_driver 开源库的基本驱动代码。</span><br><span class="line">├── user 储存main函数和中断设置的文件夹。</span><br><span class="line">|   ├── cpu0_main.c CPU0的程序进入点。</span><br><span class="line">|   ├── cpu0_main.h </span><br><span class="line">|   ├── cpu1_main.c CPU1的程序进入点。</span><br><span class="line">|   ├── cpu2_main.c CPU2的程序进入点。</span><br><span class="line">|   ├── isr.c 中断的相关处理函数。</span><br><span class="line">|   ├── isr.h </span><br><span class="line">|   └── isr_config.h 中断的相关设置。</span><br><span class="line">├── .cproject </span><br><span class="line">├── .project</span><br><span class="line">├── Lcf_Tasking_Tricore_Tc.lsl</span><br><span class="line">├── 删除临时文件.bat 执行这个批处理文件会删除所有的中间文件，可以避免在没有.gitignore文件的情况下将许多没必要的文件上传到远程储存库。</span><br><span class="line">├── 尽量不要使用的引脚.txt 顾名思义。</span><br><span class="line">└── 推荐IO分配.txt 顾名思义。</span><br></pre></td></tr></table></figure>
+
+<p>通常来说，想要了解一个程序，我们应该从程序的进入点<code>cpu0_main.c</code>开始。</p>
+<h2 id="学习任务"><a href="#学习任务" class="headerlink" title="学习任务"></a>学习任务</h2><p>各<span class="heti-em">组</span>在Gitee或GitHub上创建一个<em>公开</em>仓库，将组员以开发者或更高权限加入。</p>
+<p>阅读E01_gpio_demo，编写代码，使核心板上4颗LED依次闪烁，并能通过按键或拨码开关改变流水方向。</p>
 <p>将所有源代码上传到仓库中。并在2024年4月14日（星期日）20:40之前将仓库首页的链接发送给我。</p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote>
 <p><a target="_blank" rel="noopener" href="https://docs.github.com/zh/get-started">GitHub官方文档（https://docs.github.com/zh/get-started）</a><br><a target="_blank" rel="noopener" href="https://gitee.com/help">Gitee帮助中心（https://gitee.com/help）</a><br><a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2">Pro Git（https://git-scm.com/book/zh/v2）</a><br><a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/sourcecontrol/overview">VS Code官方文档（https://code.visualstudio.com/docs/sourcecontrol/overview）</a></p>
@@ -357,7 +382,7 @@
     </div>
     
         <div class="heti heti--classic side">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E5%86%85%E5%AE%B9"><span class="toc-number">2.</span> <span class="toc-text">学习内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C%E5%B7%A5%E5%85%B7"><span class="toc-number">2.1.</span> <span class="toc-text">团队协作工具</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Git%E2%80%94%E2%80%94%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.1.1.</span> <span class="toc-text">Git——版本控制系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Gitee%E6%88%96%E8%80%85GitHub%E2%80%94%E2%80%94%E4%BB%A3%E7%A0%81%E6%89%98%E7%AE%A1%E5%B9%B3%E5%8F%B0"><span class="toc-number">2.1.2.</span> <span class="toc-text">Gitee或者GitHub——代码托管平台</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E5%86%8CGitee%E8%B4%A6%E5%8F%B7"><span class="toc-number">2.1.2.1.</span> <span class="toc-text">注册Gitee账号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%BB%93%E5%BA%93"><span class="toc-number">2.1.2.2.</span> <span class="toc-text">创建第一个仓库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E7%AC%AC%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81"><span class="toc-number">2.1.2.3.</span> <span class="toc-text">提交第一行代码</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87VS-Code%E7%9A%84%E5%9B%BE%E5%BD%A2%E5%8C%96%E9%A1%B5%E9%9D%A2%E4%BD%BF%E7%94%A8Git"><span class="toc-number">2.1.3.</span> <span class="toc-text">通过VS Code的图形化页面使用Git</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%93%E5%BA%93%E5%92%8C%E6%8B%89%E5%8F%96%E4%BB%A3%E7%A0%81"><span class="toc-number">2.1.3.1.</span> <span class="toc-text">初始化仓库和拉取代码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8E%A8%E9%80%81%E4%BB%A3%E7%A0%81"><span class="toc-number">2.1.3.2.</span> <span class="toc-text">推送代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%90%E9%A3%9E%E7%A7%91%E6%8A%80%E5%BC%80%E6%BA%90%E5%BA%93"><span class="toc-number">2.2.</span> <span class="toc-text">逐飞科技开源库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD"><span class="toc-number">2.2.1.</span> <span class="toc-text">下载</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E4%BB%BB%E5%8A%A1"><span class="toc-number">3.</span> <span class="toc-text">学习任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E5%86%85%E5%AE%B9"><span class="toc-number">2.</span> <span class="toc-text">学习内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C%E5%B7%A5%E5%85%B7"><span class="toc-number">2.1.</span> <span class="toc-text">团队协作工具</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Git%E2%80%94%E2%80%94%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.1.1.</span> <span class="toc-text">Git——版本控制系统</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Gitee%E6%88%96%E8%80%85GitHub%E2%80%94%E2%80%94%E4%BB%A3%E7%A0%81%E6%89%98%E7%AE%A1%E5%B9%B3%E5%8F%B0"><span class="toc-number">2.1.2.</span> <span class="toc-text">Gitee或者GitHub——代码托管平台</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E5%86%8CGitee%E8%B4%A6%E5%8F%B7"><span class="toc-number">2.1.2.1.</span> <span class="toc-text">注册Gitee账号</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%BB%93%E5%BA%93"><span class="toc-number">2.1.2.2.</span> <span class="toc-text">创建第一个仓库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E7%AC%AC%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81"><span class="toc-number">2.1.2.3.</span> <span class="toc-text">提交第一行代码</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87VS-Code%E7%9A%84%E5%9B%BE%E5%BD%A2%E5%8C%96%E9%A1%B5%E9%9D%A2%E4%BD%BF%E7%94%A8Git"><span class="toc-number">2.1.3.</span> <span class="toc-text">通过VS Code的图形化页面使用Git</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%93%E5%BA%93%E5%92%8C%E6%8B%89%E5%8F%96%E4%BB%A3%E7%A0%81"><span class="toc-number">2.1.3.1.</span> <span class="toc-text">初始化仓库和拉取代码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8E%A8%E9%80%81%E4%BB%A3%E7%A0%81"><span class="toc-number">2.1.3.2.</span> <span class="toc-text">推送代码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%90%E9%A3%9E%E7%A7%91%E6%8A%80%E5%BC%80%E6%BA%90%E5%BA%93"><span class="toc-number">2.2.</span> <span class="toc-text">逐飞科技开源库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%BC%80%E6%BA%90%E5%BA%93"><span class="toc-number">2.2.1.</span> <span class="toc-text">下载开源库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-number">2.2.2.</span> <span class="toc-text">安装开发环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%80%E6%BA%90%E5%BA%93%E7%BB%93%E6%9E%84%E7%AE%80%E4%BB%8B"><span class="toc-number">2.2.3.</span> <span class="toc-text">开源库结构简介</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0%E4%BB%BB%E5%8A%A1"><span class="toc-number">3.</span> <span class="toc-text">学习任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">4.</span> <span class="toc-text">参考资料</span></a></li></ol>
         </div>
     
 </div>
