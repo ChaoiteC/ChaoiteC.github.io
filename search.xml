@@ -266,7 +266,7 @@
 <h3 id="GPIO"><a href="#GPIO" class="headerlink" title="GPIO"></a>GPIO</h3><p>GPIO（General-purpose input&#x2F;output），通用型之输入输出的简称，功能类似8051的P0-P3，其接脚可以供使用者由程控自由使用，PIN脚依现实考量可作为通用输入（GPI）或通用输出（GPO）或通用输入与输出（GPIO）。</p>
 <h2 id="学习任务"><a href="#学习任务" class="headerlink" title="学习任务"></a>学习任务</h2><p>各<span class="heti-em">组</span>在Gitee或GitHub上创建一个<em>公开</em>仓库，将组员以开发者或更高权限加入。</p>
 <p>参考Example&#x2F;E01_gpio_demo，编写代码，使核心板上4颗LED依次闪烁，并能通过按键或拨码开关改变流水方向。</p>
-<p>尝试烧录到核心板中运行。将所有源代码上传到仓库中。并在2024年4月14日（星期日）20:40之前将仓库首页的链接发送给我。</p>
+<p>尝试烧录到学习板中运行。将所有源代码上传到仓库中。并在2024年4月14日（星期日）20:40之前将仓库首页的链接发送给我。</p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote>
 <p><a href="https://docs.github.com/zh/get-started">GitHub官方文档（https://docs.github.com/zh/get-started）</a><br><a href="https://gitee.com/help">Gitee帮助中心（https://gitee.com/help）</a><br><a href="https://git-scm.com/book/zh/v2">Pro Git（https://git-scm.com/book/zh/v2）</a><br><a href="https://code.visualstudio.com/docs/sourcecontrol/overview">VS Code官方文档（https://code.visualstudio.com/docs/sourcecontrol/overview）</a></p>
 </blockquote>
@@ -434,7 +434,7 @@
 <p>本文内容不涉及选购服务器，但如果你意欲购买，请注意域名注册商和服务器提供商主体应该同在境内或境外，若一方在境内一方在境外，备案时可能会产生问题。</p>
 </blockquote>
 <p>选择一个合适的域名注册商是很重要的，至少是关乎钱包（）。我比较欣赏的是Cloudflare，他们也提供Pages服务和自动部署功能，而且配置其实比GitHub简单得多，在他们那里购买域名的话配置应该也是很简单的。但我最后选择的是Godaddy，为什么呢？因为Cloudflare注册不了.moe域名，让我感到非常遗憾。</p>
-<p>另外在Godaddy购买的时候可以选择买一个￥9&#x2F;月的企业邮箱服务，让你可以快速拥有一个（一堆）以自己的域名为主机名的邮箱！例如我的邮箱：<a href="mailto:&#x6b;&#x61;&#x72;&#117;&#x62;&#111;&#x6e;&#119;&#97;&#105;&#116;&#x6f;&#x40;&#x6b;&#97;&#x72;&#117;&#98;&#111;&#x6e;&#x2e;&#x6d;&#111;&#101;">&#x6b;&#x61;&#x72;&#117;&#x62;&#111;&#x6e;&#119;&#97;&#105;&#116;&#x6f;&#x40;&#x6b;&#97;&#x72;&#117;&#98;&#111;&#x6e;&#x2e;&#x6d;&#111;&#101;</a>。</p>
+<p>另外在Godaddy购买的时候可以选择买一个￥9&#x2F;月的企业邮箱服务，让你可以快速拥有一个（一堆）以自己的域名为主机名的邮箱！例如我的邮箱：<a href="mailto:&#107;&#97;&#114;&#x75;&#98;&#x6f;&#x6e;&#119;&#97;&#x69;&#x74;&#111;&#64;&#x6b;&#97;&#x72;&#x75;&#98;&#x6f;&#110;&#x2e;&#109;&#111;&#101;">&#107;&#97;&#114;&#x75;&#98;&#x6f;&#x6e;&#119;&#97;&#x69;&#x74;&#111;&#64;&#x6b;&#97;&#x72;&#x75;&#98;&#x6f;&#110;&#x2e;&#109;&#111;&#101;</a>。</p>
 <p>所以本文会以Godaddy为例，介绍如何购买和配置域名。</p>
 <h4 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h4><p>访问<a href="https://www.godaddy.com/zh-sg">Godaddy官网</a>。先注册一个账号，然后搜索你想要的域名（例如本站的域名karubon.moe），如果这个域名没有被占用，你就会看到标价和加入购物车的按键。</p>
 <p>就像在网上购买一件商品一样一路继续，填写个人信息和支付方式，看清楚订单里的商品再付款，千万不要花钱购买自己不想要的东西。</p>
