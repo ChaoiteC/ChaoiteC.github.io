@@ -153,10 +153,11 @@
 </ul>
 <h3 id="屏幕、按键或者其他外设"><a href="#屏幕、按键或者其他外设" class="headerlink" title="屏幕、按键或者其他外设"></a>屏幕、按键或者其他外设</h3><p>看完这些理论性质的东西，我们把目光重新聚焦在逐飞库上。</p>
 <p>逐飞库下的zf_device文件夹中提供了各种可能使用的外设硬件的驱动代码。</p>
-<p>利用头文件和源文件实现代码的模块化和封装，逐飞库提供了一种类似面向对象编程（Object-Oriented Programming，简称OOP）的体验。如果我们将每个外设视为一个实体（Entity），则逐飞库将各个外设分别抽象（Abstraction）为一个对象（Object），每一组关于该外设的文件即是一个类（Class），通过将对象的状态State（属性Attributes）和行为Behaviors（方法Method）打包在一起，形成一个逻辑上独立的单元，并隐藏对象的内部细节，只暴露必要的接口（Interface）。逐飞库内部甚至在一定程度上实现了多态（Polymorphism），例如对DEBUG信息的处理。</p>
-<p>这使我们在使用外设时，不用（或极少）关心外设在硬件层面上的实现（也可以说：你不必去了解你要怎么处理寄存器当中的0和1，或者更麻烦的东西）甚至是一些软件层面上的实现。</p>
+<p>利用精妙的设计与特性，逐飞库提供了一种类似面向对象编程（Object-Oriented Programming，简称OOP）的体验。如果我们将每个外设各视为一个实体（Entity），则逐飞库将各个外设分别抽象（Abstraction）为一个对象（Object），每一组关于该外设的文件即是一个类（Class），通过将对象的状态State（属性Attributes）和行为Behaviors（方法Method）打包在一起，形成逻辑独立的单元，并隐藏对象的内部细节，只暴露必要的接口（Interface）。逐飞库甚至一定程度上实现了多态（Polymorphism），例如对DEBUG信息的处理。</p>
+<p>这使我们在使用外设时，不用（或极少）关心外设在硬件层面上的实现（也可以说：你不必去了解你要怎么处理寄存器，或者更麻烦的东西）甚至是一些软件层面上的实现。</p>
 <p>通常来说，你在购买逐飞公司开发的外设或者学习板时，将会得到附带的使用例程。<del>但我现在找不到，所以</del>这里我们以OLED屏幕和按键为例，来看如何通过逐飞库使用各种外设。</p>
-<h4 id="OLED屏幕"><a href="#OLED屏幕" class="headerlink" title="OLED屏幕"></a>OLED屏幕</h4>
+<h4 id="OLED屏幕"><a href="#OLED屏幕" class="headerlink" title="OLED屏幕"></a>OLED屏幕</h4><p>在.&#x2F;libraries&#x2F;zf_device路径下找到并打开zf_device_oled.c，首先看到的是最上方绿油油的一片版权声明，逐飞库使用自由软件基金会发布的GPL（GNU General Public License，GNU通用公共许可证）的条款，即GPL的第3版（GPL3.0）进行开源许可，由于GPL许可证的传染性，这意味着我们的代码同样是使用GPL许可证的。</p>
+
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
                 <source type="audio/mpeg" src="">
