@@ -160,8 +160,7 @@
 <p>逐飞库下的zf_device文件夹中提供了各种可能使用的外设硬件的驱动代码。</p>
 <p>利用精妙的设计与特性，逐飞库提供了一种类似面向对象编程（Object-Oriented Programming，简称OOP）的体验。如果我们将每个外设各视为一个实体（Entity），则逐飞库将各个外设分别抽象（Abstraction）为一个对象（Object），每一组关于该外设的文件即是一个类（Class），通过将对象的状态State——属性Attributes和行为Behaviors——方法Method打包在一起，形成逻辑独立的单元，并隐藏对象的内部细节，只暴露必要的接口（Interface）。逐飞库甚至一定程度上实现了多态（Polymorphism），例如对DEBUG信息的处理。</p>
 <p>这使我们在使用外设时，不用（或极少）关心外设在硬件层面上的实现（也可以说：你不必去了解你要怎么处理寄存器，或者更麻烦的东西）甚至是一些软件层面上的实现。</p>
-<p>通常来说，你在购买逐飞公司开发的外设或者学习板时，将会得到附带的使用例程。相关的例程我已经在钉钉群内发布。我觉得依葫芦画瓢还算是很简单的事情，就不打算占用太多篇幅来介绍了。</p>
-<p>通常来说，逐飞提供的函数功能完全够用，不需要去深究这些事物的底层实现。</p>
+<p>通常来说，你在购买逐飞公司开发的外设或者学习板时，将会得到附带的使用例程。当我们翻阅了足够多的例程，我们容易注意到这些例程的共通之处。</p>
 <h3 id="用户界面"><a href="#用户界面" class="headerlink" title="用户界面"></a>用户界面</h3><p><q>用户界面是介于用户与硬件而设计彼此之间交互沟通相关软件，目的在使得用户能够方便有效率地去操作硬件以达成双向之交互，完成所希望借助硬件完成之工作，用户界面定义广泛，包含了人机交互与图形用户界面，凡参与人类与机械的信息交流的领域都存在着用户界面。</q></p>
 <p>——维基百科，自由的百科全书</p>
 <p>我们在开发与调试智能车时，常常需要查看各种外设反馈的数据和算法的计算结果，有时还需要调整算法中的各个参数。在使用GPS的组别中，可能还需要录入不同的GPS点位。显然，我们不可能在每次读取和修改参数时都连接电脑进行烧录。这便要求我们编写一个程序，通过屏幕与按键完成上述的任务。我们称之为用户页面（UI）。（在本实验室，有时也称为菜单）</p>
@@ -187,9 +186,6 @@
 <li>用户支付款项：在支付状态下，用户完成了支付。</li>
 <li>商品发货：在发货状态下，商品已经成功被发出。</li>
 </ul>
-<p>下面是一个简化的自动售货机的有限状态机示意图：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">+-------------+        用户按下按钮        +--------------+</span><br><span class="line">| 待机状态     |  ----------------------&gt;  | 选择商品状态  |</span><br><span class="line">+-------------+                           +--------------+</span><br><span class="line">      |                                          |</span><br><span class="line">      | 用户输入商品编号                           |</span><br><span class="line">      |                                          |</span><br><span class="line">      v                                          v</span><br><span class="line">+-------------+                           +--------------+</span><br><span class="line">| 选择商品状态 |  &lt;---------------------   | 支付状态      |</span><br><span class="line">+-------------+        用户支付款项        +--------------+</span><br><span class="line">      |                                          |</span><br><span class="line">      | 商品发货                                 |</span><br><span class="line">      |                                          |</span><br><span class="line">      v                                          v</span><br><span class="line">+-------------+                           +--------------+</span><br><span class="line">| 支付状态     |  ----------------------&gt;  | 发货状态      |</span><br><span class="line">+-------------+                           +--------------+</span><br></pre></td></tr></table></figure>
-
 <p>在有限状态机中，每个状态都有确定的转移条件和动作。例如，在待机状态下，如果用户按下了按钮，自动售货机将转移到选择商品状态。同样，在选择商品状态下，如果用户输入了商品编号，自动售货机将转移到支付状态。每个状态的转移都对应着特定的事件触发。</p>
 <p>有限状态机的优点之一是它可以帮助我们清晰地理解系统的行为，以及在不同状态下可能发生的事件和转换。这使得在设计和调试系统时更加容易。</p>
 <hr>
@@ -227,10 +223,13 @@
 <p>如果你有其他的设计方法，那就更好了。</p>
 </blockquote>
 <p><img src="/images/UI-LOGIC.png" alt="流程图"></p>
-<p>如图所示。除去初始化外，一个基本UI大致可以分别三个步骤——显示、输入和执行，如果把输入算作执行的一部分，那就是两个。<i>（这里分出来一个等待输入是因为Obsidian画框图不能自己连到自己）</i>。</p>
-<p>很容易想到，我们的UI应该以页面（Page）作为一组数据的基本单位。这个单位当中包含屏幕应该显示的内容和程序应该执行的操作，我们可以认为这些数据构成了一个完整的状态。程序在一个页面到另一个页面之间跳转，也可以认为是从一个状态转换到了另一个状态。如果我们使用数组或者枚举来组织这些页面，那么现在我们就有了代表当前页面的状态——变量page-index。</p>
-<p>首先，UI的主程序（函数）需要判断它应该在屏幕上显示什么。这有两种实现方式：</p>
-<p>1.函数。</p>
+<p>如图所示。除去初始化外，一个基本UI大致可以分别三个步骤——显示、输入和执行，如果把输入算作执行的一部分，那就是两个。<i>（这里分出来一个等待输入是因为Obsidian画框图不能自己连到自己。）</i></p>
+<p>很容易想到，我们的UI应该以页面（Page）作为一组数据的基本单位。这个单位当中包含屏幕应该显示的内容和程序应该执行的操作，我们可以认为这些数据构成了一个完整的状态。程序在一个页面到另一个页面之间跳转，就是从一个状态转换到了另一个状态。如果我们使用数组或者枚举来组织这些页面，那么现在我们就有了代表当前页面——状态的变量page-index。</p>
+<p>首先，UI主程序需要判断它应该在屏幕上显示什么。这有两种实现方式，取决于你的数据是如何保存的：</p>
+<ol>
+<li>函数——显而易见的方法是为每一个页面编写一个显示函数，好处在于灵活的表现形式与简单易懂的编写方法，缺点在于需要编写大量重复的繁琐代码。<br><img src="/images/IMU_SHOW.jpg" alt="imu-show"></li>
+<li>结构体——你也可以选择用复杂的结构体数组来保存数据，并通过一个&#x2F;一组通用的渲染函数来将其显示在屏幕上。你可能会发现这在实现上明显地更复杂了，但是这实现了代码的复用。<br><img src="/images/UI-SHOW.jpg" alt="imu-show"></li>
+</ol>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
