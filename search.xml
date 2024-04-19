@@ -166,27 +166,27 @@
 <p>显示部分非常直观，不需要过多解释。我们注意这当中表示选中项的方法看起来可能有些曲折，还用到了三元运算符。这是因为最下方的选项和其他选项没有连在一起。在处理一些特殊的情况时，我们可以使用这种方法来进行实现。</p>
 <h4 id="执行部分"><a href="#执行部分" class="headerlink" title="执行部分"></a>执行部分</h4><p>很容易注意到，这其实就是一个小状态机，不同的case就是不同的步骤，接受按键的输入作为状态。</p>
 <p>首先关心按键读取的实现。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @brief 获取各按键状态。</span><br><span class="line"> *</span><br><span class="line"> * @param wait 是否循环等待直到按键按下</span><br><span class="line"> * @return 按键状态</span><br><span class="line"> */</span><br><span class="line">OGAS_KEY ogas_get_key(int wait) &#123;</span><br><span class="line">    do &#123;</span><br><span class="line">        if (key_get_state(KEY_1)) &#123; return key_get_state(KEY_1) + 0; &#125;</span><br><span class="line">        if (key_get_state(KEY_2)) &#123; return key_get_state(KEY_2) + 2; &#125;</span><br><span class="line">        if (key_get_state(KEY_3)) &#123; return key_get_state(KEY_3) + 4; &#125;</span><br><span class="line">        if (key_get_state(KEY_4)) &#123; return key_get_state(KEY_4) + 6; &#125;</span><br><span class="line">    &#125; while (wait);</span><br><span class="line">    return EMPTY;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">typedef enum OGAS_KEY &#123;</span><br><span class="line">    EMPTY,</span><br><span class="line">    K1_S, K1_L,</span><br><span class="line">    K2_S, K2_L,</span><br><span class="line">    K3_S, K3_L,</span><br><span class="line">    K4_S, K4_L,</span><br><span class="line">&#125; OGAS_KEY;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @brief 获取各按键状态。</span><br><span class="line"> *</span><br><span class="line"> * @param wait 是否循环等待直到按键按下</span><br><span class="line"> * @return 按键状态</span><br><span class="line"> */</span><br><span class="line">OGAS_KEY ogas_get_key(int wait) &#123;</span><br><span class="line">    do &#123;</span><br><span class="line">        if (key_get_state(KEY_1)) &#123; return key_get_state(KEY_1) + 0; &#125;</span><br><span class="line">        if (key_get_state(KEY_2)) &#123; return key_get_state(KEY_2) + 2; &#125;</span><br><span class="line">        if (key_get_state(KEY_3)) &#123; return key_get_state(KEY_3) + 4; &#125;</span><br><span class="line">        if (key_get_state(KEY_4)) &#123; return key_get_state(KEY_4) + 6; &#125;</span><br><span class="line">    &#125; while (wait);</span><br><span class="line">    return EMPTY;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><code>OGAS_KEY</code>的定义上文已经给出。这里调用的是逐飞库<code>zf_device_key.c</code>中定义的函数，我们后面一点再讨论。之前有同学对这段代码的实现很困惑，所以在这里简单解释一下：</p>
+<p>这里调用的是逐飞库<code>zf_device_key.c</code>中定义的函数，我们后面一点再讨论。之前有同学对这段代码的实现很困惑，所以在这里简单解释一下：</p>
 <p>在C语言中，枚举类型是被当做int或者unsigned int类型来处理的。如果我们对其进行强制类型转换，你可以看到隐藏在字符背后的数值。现代编辑器通常也都能让用户直接查看。</p>
 <p>任何一个按键无非三种状态——未按下（释放）、短按和长按，也即0、1和2。当我们调用逐飞库的<code>key_get_state</code>函数，它总是给我们反馈指定按键的上述三个状态之一。如果按键被释放（为0），则不满足if判断的成立条件（非0），因而不会进入到内部的处理，继续进行下一个if的判断。假若直到退出循环，没有任何一个if判断成立，即没有任何按键被按下，函数返回<code>EMPTY</code>，即0。如果有按键被按下，就有一个if判断的条件被满足，进入其内部的处理，函数将返回按键的状态加上一个常数。想起来短按和长按分别为1和2，这个常数实际上形成一个偏移量，它对不同按键的同一状态进行偏移，使得每个按键的每种状态都有唯一对应的常量。</p>
 <p>函数主体使用do-while循环，使循环至少被执行一次。函数接受的<code>wait</code>参数允许循环循环反复执行，直到某个按键被按下才返回而退出循环；或者也可以只执行一次就退出，让UI进行下一步动作。</p>
 <p>现在让我们关注逐飞库。在调用<code>key_init</code>函数进行初始化时，函数要求我们提供一个参数作为按键扫描周期，单位为毫秒。在这个函数上方还存在一个名为<code>key_scanner</code>的函数，注释要求我们在主循环或者PIT中断中调用该函数。但考虑到按键扫描周期为定值，而每个页面的处理时间不尽相同，在PIT中断中调用成为了唯一的选择。</p>
-<p>我们顺便提一下PIT中断。不同芯片的逐飞库对其实现略有差别，需要参阅例程。以笔者本人使用的逐飞科技CH32V307开源库为例，其将具体的中断执行函数储存在名为isr.c的文件内。例如：</p>
+<p>我们顺便提一下PIT中断。不同芯片的逐飞库对其实现略有差别，<em>需要参阅例程</em>。以笔者本人使用的逐飞科技CH32V307开源库为例，其将具体的中断执行函数储存在名为isr.c的文件内。例如：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">void TIM5_IRQHandler(void)</span><br><span class="line">&#123;</span><br><span class="line">    if(TIM_GetITStatus(TIM5, TIM_IT_Update) != RESET)</span><br><span class="line">    &#123;</span><br><span class="line">       TIM_ClearITPendingBit(TIM5, TIM_IT_Update );</span><br><span class="line">        key_scanner();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
-<p>我不知道为什么这里面没有严格遵守4空格缩进……</p>
+<p>TC377库的中断处理函数和这个看起来很不一样，但原理是相同的。</p>
 </blockquote>
 <p>但MCU此时并不知道何时应该调用此函数。逐飞库提供了<code>zf_driver_pit</code>帮助我们进行PIT初始化。在该名字的.h文件中有如下宏定义函数：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#define pit_ms_init(pit_n, ms) (pit_init((pit_n), (ms) * (system_clock / 1000)))</span><br></pre></td></tr></table></figure>
 
 <p>其中<code>pit_n</code>是我们需要使用的PIT通道，<code>ms</code>则是PIT周期。我们通过调用此函数，就能完成PIT中断的初始化，而无需像学习89C51那样关心对MCU各寄存器的配置，这正是上文所述的逐飞库的优点。</p>
 <p>这样，我们就实现了对按键输入的读取。</p>
-<p>将按键的输入视作状态，并根据不同的状态执行不同的步骤我们应该已经熟悉了。这里新开一节，讨论一个特别的动作。</p>
+<p>将按键的输入视作状态，并根据不同的状态执行不同的步骤我们应该已经熟悉了。这里我们讨论一个特别的动作。</p>
 <h3 id="FLASH"><a href="#FLASH" class="headerlink" title="FLASH"></a>FLASH</h3><p>我们现在已经知道，我们程序运行时定义的变量储存在内存中，断电即丢失。这就存在一个很不方便的情况——假若我们临时修改了某个参数，但条件又不允许我们频繁烧录，我们就不得不在每一次上电后再手动对其进行更改。如果我们要管理一大组参数，这种维护工作就变得艰难直至不可行了。</p>
-<p>为解决这一矛盾，我们使用FLASH</p>
+<p>为解决这一矛盾，我们使用FLASH在掉电时储存数据。FLASH的特点在于需要整页存取，因此读取和写入的时间比较长</p>
 <h2 id="任务目标"><a href="#任务目标" class="headerlink" title="任务目标"></a>任务目标</h2><p>各组编写一个用户页面。</p>
 <p>将所有源代码上传到仓库中。并在2024年5月12日（星期日）20:40之前将仓库首页的链接发送给我。</p>
 ]]></content>
@@ -286,7 +286,7 @@
 <p>在桌面（或者其他文件夹）<strong>右键菜单中（可能需要“显示更多选项”）选择Git bash here</strong>，输入并执行下面命令（美元符号不用输入）：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name &quot;YourName&quot;</span><br><span class="line">$ git config --global user.email &quot;YourEmail@example.com&quot;</span><br></pre></td></tr></table></figure>
 
-<p><mark>记得把<code>YourName</code>和<code><a href="mailto:&#89;&#x6f;&#x75;&#114;&#x45;&#x6d;&#x61;&#105;&#x6c;&#64;&#101;&#x78;&#x61;&#109;&#112;&#108;&#101;&#x2e;&#99;&#111;&#109;">&#89;&#x6f;&#x75;&#114;&#x45;&#x6d;&#x61;&#105;&#x6c;&#64;&#101;&#x78;&#x61;&#109;&#112;&#108;&#101;&#x2e;&#99;&#111;&#109;</a></code>改成你实际使用的（）。</mark></p>
+<p><mark>记得把<code>YourName</code>和<code><a href="mailto:&#89;&#x6f;&#117;&#114;&#x45;&#x6d;&#x61;&#x69;&#x6c;&#x40;&#101;&#120;&#x61;&#109;&#x70;&#108;&#101;&#46;&#99;&#x6f;&#x6d;">&#89;&#x6f;&#117;&#114;&#x45;&#x6d;&#x61;&#x69;&#x6c;&#x40;&#101;&#120;&#x61;&#109;&#x70;&#108;&#101;&#46;&#99;&#x6f;&#x6d;</a></code>改成你实际使用的（）。</mark></p>
 <p><img src="/images/1.jpg" alt="在桌面右键菜单中选择git bash here"></p>
 <p><code>--global</code>参数将使更改是全局性的，之后你在这个系统上的操作都会默认使用此信息。</p>
 <h4 id="Gitee或者GitHub——代码托管平台"><a href="#Gitee或者GitHub——代码托管平台" class="headerlink" title="Gitee或者GitHub——代码托管平台"></a>Gitee或者GitHub——代码托管平台</h4><p><a href="https://gitee.com/">Gitee（码云）</a>是开源中国于2013年推出的基于Git的代码托管服务，目前已经成为国内知名的代码托管平台，提供中华人民共和国本土化的代码托管服务。</p>
@@ -636,7 +636,7 @@
 <p>本文内容不涉及选购服务器，但如果你意欲购买，请注意域名注册商和服务器提供商主体应该同在境内或境外，若一方在境内一方在境外，备案时可能会产生问题。</p>
 </blockquote>
 <p>选择一个合适的域名注册商是很重要的，至少是关乎钱包（）。我比较欣赏的是Cloudflare，他们也提供Pages服务和自动部署功能，而且配置其实比GitHub简单得多，在他们那里购买域名的话配置应该也是很简单的。但我最后选择的是Godaddy，为什么呢？因为Cloudflare注册不了.moe域名，让我感到非常遗憾。</p>
-<p>另外在Godaddy购买的时候可以选择买一个￥9&#x2F;月的企业邮箱服务，让你可以快速拥有一个（一堆）以自己的域名为主机名的邮箱！例如我的邮箱：<a href="mailto:&#x6b;&#x61;&#114;&#x75;&#98;&#111;&#110;&#119;&#x61;&#x69;&#x74;&#111;&#x40;&#107;&#x61;&#114;&#x75;&#x62;&#111;&#110;&#46;&#109;&#x6f;&#101;">&#x6b;&#x61;&#114;&#x75;&#98;&#111;&#110;&#119;&#x61;&#x69;&#x74;&#111;&#x40;&#107;&#x61;&#114;&#x75;&#x62;&#111;&#110;&#46;&#109;&#x6f;&#101;</a>。</p>
+<p>另外在Godaddy购买的时候可以选择买一个￥9&#x2F;月的企业邮箱服务，让你可以快速拥有一个（一堆）以自己的域名为主机名的邮箱！例如我的邮箱：<a href="mailto:&#x6b;&#x61;&#x72;&#x75;&#x62;&#111;&#x6e;&#x77;&#97;&#x69;&#116;&#111;&#x40;&#x6b;&#97;&#x72;&#x75;&#98;&#111;&#110;&#x2e;&#x6d;&#x6f;&#101;">&#x6b;&#x61;&#x72;&#x75;&#x62;&#111;&#x6e;&#x77;&#97;&#x69;&#116;&#111;&#x40;&#x6b;&#97;&#x72;&#x75;&#98;&#111;&#110;&#x2e;&#x6d;&#x6f;&#101;</a>。</p>
 <p>所以本文会以Godaddy为例，介绍如何购买和配置域名。</p>
 <h4 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h4><p>访问<a href="https://www.godaddy.com/zh-sg">Godaddy官网</a>。先注册一个账号，然后搜索你想要的域名（例如本站的域名karubon.moe），如果这个域名没有被占用，你就会看到标价和加入购物车的按键。</p>
 <p>就像在网上购买一件商品一样一路继续，填写个人信息和支付方式，看清楚订单里的商品再付款，千万不要花钱购买自己不想要的东西。</p>
