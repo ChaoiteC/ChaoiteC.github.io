@@ -11,11 +11,9 @@
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="ChaoiteC,"> 
     <meta name="description" content="
-注意！这篇文档仍在编写阶段，你现在看到的可能不是最终版本。请审慎参考。
-
-
 - 立足培养、重在参与、鼓励探索、追求卓越 -
-前言现在，我们将沿着程序的入口点，进一步学习如何通过逐飞库与自己编写的函,"> 
+前言现在，我们将沿着程序的入口点，进一步学习如何通过逐飞库与自己编写的函数实现发车前的前置准备。
+学习内容自定义代码文件在逐飞库中，有./proje,"> 
     <meta name="author" content="KarubonWaito"> 
     <link rel="alternative" href="atom.xml" title="碳白色海港" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -27,29 +25,23 @@
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:title" content="SIC实验室23届第十次学习目标 - 碳白色海港"/>
     <meta name="twitter:description" content="
-注意！这篇文档仍在编写阶段，你现在看到的可能不是最终版本。请审慎参考。
-
-
 - 立足培养、重在参与、鼓励探索、追求卓越 -
-前言现在，我们将沿着程序的入口点，进一步学习如何通过逐飞库与自己编写的函,"/>
+前言现在，我们将沿着程序的入口点，进一步学习如何通过逐飞库与自己编写的函数实现发车前的前置准备。
+学习内容自定义代码文件在逐飞库中，有./proje,"/>
     <meta property="og:image" content="https://raw.githubusercontent.com/ChaoiteC/ChaoiteC.github.io/main/img/cover.jpg"/>
     <meta property="og:image:alt" content="
-注意！这篇文档仍在编写阶段，你现在看到的可能不是最终版本。请审慎参考。
-
-
 - 立足培养、重在参与、鼓励探索、追求卓越 -
-前言现在，我们将沿着程序的入口点，进一步学习如何通过逐飞库与自己编写的函,"/>
+前言现在，我们将沿着程序的入口点，进一步学习如何通过逐飞库与自己编写的函数实现发车前的前置准备。
+学习内容自定义代码文件在逐飞库中，有./proje,"/>
     <meta property="og:image:width" content="1200"/>
     <meta property="og:image:height" content="600"/>
     <meta property="og:site_name" content="碳白色海港"/>
     <meta property="og:type" content="object"/>
     <meta property="og:title" content="SIC实验室23届第十次学习目标 - 碳白色海港"/>
     <meta property="og:description" content="
-注意！这篇文档仍在编写阶段，你现在看到的可能不是最终版本。请审慎参考。
-
-
 - 立足培养、重在参与、鼓励探索、追求卓越 -
-前言现在，我们将沿着程序的入口点，进一步学习如何通过逐飞库与自己编写的函,"/>
+前言现在，我们将沿着程序的入口点，进一步学习如何通过逐飞库与自己编写的函数实现发车前的前置准备。
+学习内容自定义代码文件在逐飞库中，有./proje,"/>
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
@@ -98,10 +90,7 @@
 
         </div>
         <div class="content markdown heti heti--classic">
-            <blockquote>
-<p><strong>注意！</strong><br>这篇文档仍在编写阶段，你现在看到的可能不是最终版本。请审慎参考。</p>
-</blockquote>
-<p><img src="/images/SIC.png" alt="SIC-LOGO"></p>
+            <p><img src="/images/SIC.png" alt="SIC-LOGO"></p>
 <p><strong><center>- 立足培养、重在参与、鼓励探索、追求卓越 -</center></strong></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>现在，我们将沿着程序的入口点，进一步学习如何通过逐飞库与自己编写的函数实现发车前的前置准备。</p>
 <h2 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h2><h3 id="自定义代码文件"><a href="#自定义代码文件" class="headerlink" title="自定义代码文件"></a>自定义代码文件</h3><p>在逐飞库中，有<code>./project/code</code>这样一个文件夹，用于储存我们自行编写的代码文件。</p>
@@ -164,10 +153,7 @@
 <h3 id="用户界面"><a href="#用户界面" class="headerlink" title="用户界面"></a>用户界面</h3><p><q>用户界面是介于用户与硬件而设计彼此之间交互沟通相关软件，目的在使得用户能够方便有效率地去操作硬件以达成双向之交互，完成所希望借助硬件完成之工作，用户界面定义广泛，包含了人机交互与图形用户界面，凡参与人类与机械的信息交流的领域都存在着用户界面。</q></p>
 <p>——维基百科，自由的百科全书</p>
 <p>我们在开发与调试智能车时，常常需要查看各种外设反馈的数据和算法的计算结果，有时还需要调整算法中的各个参数。在使用GPS的组别中，可能还需要录入不同的GPS点位。显然，我们不可能在每次读取和修改参数时都连接电脑进行烧录。这便要求我们编写一个程序，通过屏幕与按键完成上述的任务。我们称之为用户页面（UI）。（在本实验室，有时也称为菜单）</p>
-<h4 id="状态机与基于状态机编程"><a href="#状态机与基于状态机编程" class="headerlink" title="状态机与基于状态机编程"></a>状态机与基于状态机编程</h4><blockquote>
-<p>不看这一小节也不会影响你完成UI的编写，所以没必要理解，看不懂就跳过吧！</p>
-</blockquote>
-<p>为了便于理解UI的编写方法，我们先引入状态机这个概念。</p>
+<h4 id="状态机与基于状态机编程"><a href="#状态机与基于状态机编程" class="headerlink" title="状态机与基于状态机编程"></a>状态机与基于状态机编程</h4><p>为了便于理解UI的编写方法，我们先引入状态机这个概念。</p>
 <p>有限状态机（英语：finite-state machine，缩写：FSM）又称有限状态自动机（英语：finite-state automaton，缩写：FSA），简称状态机，是表示有限个状态以及在这些状态之间的转移和动作等行为的数学计算模型。它是一种抽象机器，在任何给定时间内只能处于有限数量的状态之一。有限状态机可以根据一些输入从一个状态变换到另一个状态；从一个状态到另一个状态的变换称为转换。一个FSM由其状态列表、其初始状态和触发每个转换的输入定义。有限状态机有两种类型——确定有限状态机和非确定有限状态机。对于任何非确定性有限状态机，都可以构造一个等价的确定性有限状态机。</p>
 <p>状态机的行为可以在现代社会的许多设备中观察到，这些设备根据它们所接收到的事件序列执行预先确定的一系列动作。简单的例子包括：<strong>自动售货机</strong>，在适当的硬币组合存入时提供产品；<strong>电梯</strong>，其停止的顺序由乘客请求的楼层确定；<strong>交通信号灯</strong>，在车辆等待时更改序列；<strong>密码锁</strong>，需要按正确顺序输入一系列数字。</p>
 <p>有限状态机的优点之一是它可以帮助我们清晰地理解系统的行为，以及在不同状态下可能发生的事件和转换。这使得在设计和调试系统时更加容易。</p>
@@ -280,9 +266,15 @@
 <p>其中<code>pit_n</code>是我们需要使用的PIT通道，<code>ms</code>则是PIT周期。我们通过调用此函数，就能完成PIT中断的初始化，而无需像学习89C51那样关心对MCU各寄存器的配置，这正是上文所述的逐飞库的优点。</p>
 <p>这样，我们就实现了对按键输入的读取。</p>
 <p>将按键的输入视作状态，并根据不同的状态执行不同的步骤我们应该已经熟悉了。这里我们讨论一个特别的动作。</p>
-<h3 id="FLASH"><a href="#FLASH" class="headerlink" title="FLASH"></a>FLASH</h3><p>我们现在已经知道，我们程序运行时定义的变量储存在内存中，断电即丢失。这就存在一个很不方便的情况——假若我们临时修改了某个参数，但条件又不允许我们频繁烧录，我们就不得不在每一次上电后再手动对其进行更改。如果我们要管理一大组参数，这种维护工作就变得艰难直至不可行了。</p>
-<p>为解决这一矛盾，我们使用FLASH在掉电时储存数据。FLASH的特点在于需要整页存取，因此读取和写入的时间比较长</p>
-<h2 id="任务目标"><a href="#任务目标" class="headerlink" title="任务目标"></a>任务目标</h2><p>各组编写一个用户页面。</p>
+<h3 id="FLASH"><a href="#FLASH" class="headerlink" title="FLASH"></a>FLASH</h3><blockquote>
+<p>本节还没有完成，但已经超过理应发布时间一星期了……</p>
+</blockquote>
+<p>我们现在已经知道，我们程序运行时定义的变量储存在内存中，断电即丢失。这就存在一个很不方便的情况——假若我们临时修改了某个参数，但条件又不允许我们频繁烧录，我们就不得不在每一次上电后再手动对其进行更改。如果我们要管理一大组参数，这种维护工作就变得艰难直至不可行了。</p>
+<p>为解决这一矛盾，我们使用FLASH在掉电时储存数据。FLASH的特点在于需要整页存取，因此读取和写入的时间比较长。使用方法逐飞库中已经提供详细的例程，这里不进行赘述。我们关注如何在用户页面中编辑和储存FLASH数据。</p>
+<h2 id="任务目标"><a href="#任务目标" class="headerlink" title="任务目标"></a>任务目标</h2><p>各组基于逐飞TC377库，实现一个用户页面。代码应该易于维护和扩展，并至少包含下面的页面层次：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.主页</span><br><span class="line">├── 发车</span><br><span class="line">├── 数据查看</span><br><span class="line">|   ├── GPS</span><br><span class="line">|   ├── MPU6050</span><br><span class="line">|   ├── CAMERA</span><br><span class="line">|   ├── ENCODER</span><br><span class="line">|   ├── MOTO_PID</span><br><span class="line">|   └── WIFI</span><br><span class="line">└── FLASH</span><br></pre></td></tr></table></figure>
+
+<p>数据查看中各个三级页面可以先留空，但应该实现退出页面的功能。FLASH页面中需要实现编辑和储存的功能，至少可以编辑5个示例变量。选中“发车”时结束用户页面。</p>
 <p>将所有源代码上传到仓库中。并在2024年5月12日（星期日）20:40之前将仓库首页的链接发送给我。</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
