@@ -277,7 +277,7 @@
 </blockquote>
 <p>我们现在已经知道，我们程序运行时定义的变量储存在内存中，断电即丢失。这就存在一个很不方便的情况——假若我们临时修改了某个参数，但条件又不允许我们频繁烧录，我们就不得不在每一次上电后再手动对其进行更改。如果我们要管理一大组参数，这种维护工作就变得艰难直至不可行了。</p>
 <p>为解决这一矛盾，我们使用FLASH在掉电时储存数据。FLASH的特点在于需要整页存取，因此读取和写入的时间比较长。使用方法逐飞库中已经提供详细的例程，这里不进行赘述。我们关注如何在用户页面中编辑和储存FLASH数据。</p>
-<h2 id="任务目标"><a href="#任务目标" class="headerlink" title="任务目标"></a>任务目标</h2><p>各组基于逐飞TC377库，实现一个用户页面。代码应该易于维护和扩展，并至少包含下面的页面层次：</p>
+<h2 id="任务目标"><a href="#任务目标" class="headerlink" title="任务目标"></a>任务目标</h2><p>各组基于逐飞TC377库，参考Example&#x2F;E05_pit_demo、Example&#x2F;E08_eeprom_demo、tc377_main_board_demo&#x2F;E06_01_oled_display_demo实现一个用户页面。代码应该易于维护和扩展，并至少包含下面的页面层次：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.主页</span><br><span class="line">├── 发车</span><br><span class="line">├── 数据查看</span><br><span class="line">|   ├── GPS</span><br><span class="line">|   ├── MPU6050</span><br><span class="line">|   ├── CAMERA</span><br><span class="line">|   ├── ENCODER</span><br><span class="line">|   ├── MOTO_PID</span><br><span class="line">|   └── WIFI</span><br><span class="line">└── FLASH</span><br></pre></td></tr></table></figure>
 
 <p>数据查看中各个三级页面可以先留空，但应该实现退出页面的功能。FLASH页面中需要实现编辑和储存的功能，至少可以编辑5个示例变量。选中“发车”时结束用户页面。</p>
