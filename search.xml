@@ -5,7 +5,7 @@
     <url>/sic%E5%AE%9E%E9%AA%8C%E5%AE%A423%E5%B1%8A%E7%AC%AC%E5%8D%81%E6%AC%A1%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/</url>
     <content><![CDATA[<p><img src="/images/SIC.png" alt="SIC-LOGO"></p>
 <p><strong><center>- 立足培养、重在参与、鼓励探索、追求卓越 -</center></strong></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>现在，我们将沿着程序的入口点，进一步学习如何通过逐飞库与自己编写的函数实现发车前的前置准备。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="/images/GU-GU.jpg" alt="GUGU"></p>
 <h2 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h2><h3 id="自定义代码文件"><a href="#自定义代码文件" class="headerlink" title="自定义代码文件"></a>自定义代码文件</h3><p>在逐飞库中，有<code>./project/code</code>这样一个文件夹，用于储存我们自行编写的代码文件。</p>
 <p>我们以一份用于进行一阶互补滤波姿态解算的代码文件为例，演示添加、编写和调用自行编写的代码时需要注意的地方。</p>
 <p>在<code>./project/code</code>目录下新建名为<code>imu.c</code>和<code>imu.h</code>的文件。</p>
@@ -92,7 +92,7 @@
 <p>虽然此程序较长，至少有一个明显的好处，程序中只调用一个读取字符的getchar()函数，而且程序中只有一个循环，不像之前程序使用四个循环。</p>
 <p>此程序中while循环内的程序即为自动机的步骤，而循环本身即可重复的执行自动机的程序。</p>
 <p>此程序实现如下图所示的有限状态机，其中N表示换行字符、S表示空白、A表示其他的字符。自动机依目前状态及读取的字符不同，会执行图中一个箭头所示的动作，可能是由一个状态跳到下一个状态，也者停在原来的状态。其中有些箭头有标示星号，表示需打印读到的字符。</p>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Automata_that_prints_the_first_word_of_each_line.png" alt="Automata"></p>
+<p><img src="/images/Automata_that_prints_the_first_word_of_each_line.png" alt="Automata"><br><i>图片来自<a href="https://en.wikipedia.org/wiki/Main_Page" class="extiw" title="en:Main Page">English Wikipedia</a> 用户 <a href="https://en.wikipedia.org/wiki/User:DrCroco" class="extiw" title="en:User:DrCroco">DrCroco</a>，<a href="http://creativecommons.org/licenses/by-sa/3.0/" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>，<a href="https://commons.wikimedia.org/w/index.php?curid=19616119">链接</a></i></p>
 <p>自动机编程中，不一定要为每一个状态撰写独立的进程，而且有时状态是由许多变量组成，无法针对每一个状态规划个别的进程。此想法有时有助于程序的精简，例如在上述程序中，不论是在哪一个状态，针对换行字符的处理都一様，因此程序可以先处理换行字符，其他输入字符时才依不同状态进行处理，简化后变成以下的程序：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    enum states &#123;</span><br><span class="line">        before, inside, after</span><br><span class="line">    &#125; state;</span><br><span class="line">    int c;</span><br><span class="line">    state = before;</span><br><span class="line">    while((c = getchar()) != EOF) &#123;</span><br><span class="line">        if(c == &#x27;\n&#x27;) &#123;</span><br><span class="line">            putchar(&#x27;\n&#x27;);</span><br><span class="line">            state = before;</span><br><span class="line">        &#125; else</span><br><span class="line">        switch(state) &#123;</span><br><span class="line">            case before:</span><br><span class="line">                if(c != &#x27; &#x27;) &#123;</span><br><span class="line">                    putchar(c);</span><br><span class="line">                    state = inside;</span><br><span class="line">                &#125;</span><br><span class="line">                break;</span><br><span class="line">            case inside:</span><br><span class="line">                if(c == &#x27; &#x27;) &#123;</span><br><span class="line">                    state = after;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    putchar(c);</span><br><span class="line">                &#125;</span><br><span class="line">                break;</span><br><span class="line">            case after:</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -286,7 +286,7 @@
 <p>在桌面（或者其他文件夹）<strong>右键菜单中（可能需要“显示更多选项”）选择Git bash here</strong>，输入并执行下面命令（美元符号不用输入）：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name &quot;YourName&quot;</span><br><span class="line">$ git config --global user.email &quot;YourEmail@example.com&quot;</span><br></pre></td></tr></table></figure>
 
-<p><mark>记得把<code>YourName</code>和<code><a href="mailto:&#89;&#111;&#x75;&#x72;&#69;&#x6d;&#97;&#105;&#108;&#64;&#x65;&#x78;&#97;&#x6d;&#112;&#x6c;&#x65;&#46;&#x63;&#111;&#x6d;">&#89;&#111;&#x75;&#x72;&#69;&#x6d;&#97;&#105;&#108;&#64;&#x65;&#x78;&#97;&#x6d;&#112;&#x6c;&#x65;&#46;&#x63;&#111;&#x6d;</a></code>改成你实际使用的（）。</mark></p>
+<p><mark>记得把<code>YourName</code>和<code><a href="mailto:&#x59;&#x6f;&#117;&#x72;&#69;&#109;&#x61;&#x69;&#108;&#64;&#101;&#x78;&#97;&#x6d;&#x70;&#x6c;&#101;&#46;&#x63;&#x6f;&#x6d;">&#x59;&#x6f;&#117;&#x72;&#69;&#109;&#x61;&#x69;&#108;&#64;&#101;&#x78;&#97;&#x6d;&#x70;&#x6c;&#101;&#46;&#x63;&#x6f;&#x6d;</a></code>改成你实际使用的（）。</mark></p>
 <p><img src="/images/1.jpg" alt="在桌面右键菜单中选择git bash here"></p>
 <p><code>--global</code>参数将使更改是全局性的，之后你在这个系统上的操作都会默认使用此信息。</p>
 <h4 id="Gitee或者GitHub——代码托管平台"><a href="#Gitee或者GitHub——代码托管平台" class="headerlink" title="Gitee或者GitHub——代码托管平台"></a>Gitee或者GitHub——代码托管平台</h4><p><a href="https://gitee.com/">Gitee（码云）</a>是开源中国于2013年推出的基于Git的代码托管服务，目前已经成为国内知名的代码托管平台，提供中华人民共和国本土化的代码托管服务。</p>
@@ -636,7 +636,7 @@
 <p>本文内容不涉及选购服务器，但如果你意欲购买，请注意域名注册商和服务器提供商主体应该同在境内或境外，若一方在境内一方在境外，备案时可能会产生问题。</p>
 </blockquote>
 <p>选择一个合适的域名注册商是很重要的，至少是关乎钱包（）。我比较欣赏的是Cloudflare，他们也提供Pages服务和自动部署功能，而且配置其实比GitHub简单得多，在他们那里购买域名的话配置应该也是很简单的。但我最后选择的是Godaddy，为什么呢？因为Cloudflare注册不了.moe域名，让我感到非常遗憾。</p>
-<p>另外在Godaddy购买的时候可以选择买一个￥9&#x2F;月的企业邮箱服务，让你可以快速拥有一个（一堆）以自己的域名为主机名的邮箱！例如我的邮箱：<a href="mailto:&#x6b;&#x61;&#x72;&#x75;&#x62;&#x6f;&#x6e;&#119;&#97;&#105;&#x74;&#x6f;&#x40;&#x6b;&#97;&#114;&#x75;&#98;&#x6f;&#110;&#x2e;&#109;&#x6f;&#x65;">&#x6b;&#x61;&#x72;&#x75;&#x62;&#x6f;&#x6e;&#119;&#97;&#105;&#x74;&#x6f;&#x40;&#x6b;&#97;&#114;&#x75;&#98;&#x6f;&#110;&#x2e;&#109;&#x6f;&#x65;</a>。</p>
+<p>另外在Godaddy购买的时候可以选择买一个￥9&#x2F;月的企业邮箱服务，让你可以快速拥有一个（一堆）以自己的域名为主机名的邮箱！例如我的邮箱：<a href="mailto:&#107;&#x61;&#114;&#117;&#x62;&#x6f;&#110;&#119;&#97;&#105;&#116;&#x6f;&#64;&#x6b;&#97;&#x72;&#117;&#98;&#111;&#x6e;&#46;&#x6d;&#111;&#x65;">&#107;&#x61;&#114;&#117;&#x62;&#x6f;&#110;&#119;&#97;&#105;&#116;&#x6f;&#64;&#x6b;&#97;&#x72;&#117;&#98;&#111;&#x6e;&#46;&#x6d;&#111;&#x65;</a>。</p>
 <p>所以本文会以Godaddy为例，介绍如何购买和配置域名。</p>
 <h4 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h4><p>访问<a href="https://www.godaddy.com/zh-sg">Godaddy官网</a>。先注册一个账号，然后搜索你想要的域名（例如本站的域名karubon.moe），如果这个域名没有被占用，你就会看到标价和加入购物车的按键。</p>
 <p>就像在网上购买一件商品一样一路继续，填写个人信息和支付方式，看清楚订单里的商品再付款，千万不要花钱购买自己不想要的东西。</p>

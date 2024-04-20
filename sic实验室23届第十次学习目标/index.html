@@ -12,8 +12,9 @@
     <meta name="keywords" content="ChaoiteC,"> 
     <meta name="description" content="
 - 立足培养、重在参与、鼓励探索、追求卓越 -
-前言现在，我们将沿着程序的入口点，进一步学习如何通过逐飞库与自己编写的函数实现发车前的前置准备。
-学习内容自定义代码文件在逐飞库中，有./proje,"> 
+前言
+学习内容自定义代码文件在逐飞库中，有./project/code这样一个文件夹，用于储存我们自行编写的代码文件。
+我们以一份用于进行一阶互补滤,"> 
     <meta name="author" content="KarubonWaito"> 
     <link rel="alternative" href="atom.xml" title="碳白色海港" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -26,13 +27,15 @@
     <meta name="twitter:title" content="SIC实验室23届第十次学习目标 - 碳白色海港"/>
     <meta name="twitter:description" content="
 - 立足培养、重在参与、鼓励探索、追求卓越 -
-前言现在，我们将沿着程序的入口点，进一步学习如何通过逐飞库与自己编写的函数实现发车前的前置准备。
-学习内容自定义代码文件在逐飞库中，有./proje,"/>
+前言
+学习内容自定义代码文件在逐飞库中，有./project/code这样一个文件夹，用于储存我们自行编写的代码文件。
+我们以一份用于进行一阶互补滤,"/>
     <meta property="og:image" content="https://raw.githubusercontent.com/ChaoiteC/ChaoiteC.github.io/main/img/cover.jpg"/>
     <meta property="og:image:alt" content="
 - 立足培养、重在参与、鼓励探索、追求卓越 -
-前言现在，我们将沿着程序的入口点，进一步学习如何通过逐飞库与自己编写的函数实现发车前的前置准备。
-学习内容自定义代码文件在逐飞库中，有./proje,"/>
+前言
+学习内容自定义代码文件在逐飞库中，有./project/code这样一个文件夹，用于储存我们自行编写的代码文件。
+我们以一份用于进行一阶互补滤,"/>
     <meta property="og:image:width" content="1200"/>
     <meta property="og:image:height" content="600"/>
     <meta property="og:site_name" content="碳白色海港"/>
@@ -40,18 +43,21 @@
     <meta property="og:title" content="SIC实验室23届第十次学习目标 - 碳白色海港"/>
     <meta property="og:description" content="
 - 立足培养、重在参与、鼓励探索、追求卓越 -
-前言现在，我们将沿着程序的入口点，进一步学习如何通过逐飞库与自己编写的函数实现发车前的前置准备。
-学习内容自定义代码文件在逐飞库中，有./proje,"/>
+前言
+学习内容自定义代码文件在逐飞库中，有./project/code这样一个文件夹，用于储存我们自行编写的代码文件。
+我们以一份用于进行一阶互补滤,"/>
     
 <link rel="stylesheet" href="/css/diaspora.css">
 
-    <link rel="stylesheet" href="//unpkg.com/heti/umd/heti.min.css">
+    <!-- <link rel="stylesheet" href="//unpkg.com/heti/umd/heti.min.css"> -->
+    <link rel="stylesheet" href="css/heti.min.css">
     <script>window.searchDbPath = "/search.xml";</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
 
-    <script src="//unpkg.com/heti/umd/heti-addon.min.js"></script>
+    <!-- <script src="//unpkg.com/heti/umd/heti-addon.min.js"></script> -->
+    <script src="js/heti-addon.min.js"></script>
     <script>
     const heti = new Heti('.heti');
     heti.autoSpacing();
@@ -92,7 +98,7 @@
         <div class="content markdown heti heti--classic">
             <p><img src="/images/SIC.png" alt="SIC-LOGO"></p>
 <p><strong><center>- 立足培养、重在参与、鼓励探索、追求卓越 -</center></strong></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>现在，我们将沿着程序的入口点，进一步学习如何通过逐飞库与自己编写的函数实现发车前的前置准备。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><img src="/images/GU-GU.jpg" alt="GUGU"></p>
 <h2 id="学习内容"><a href="#学习内容" class="headerlink" title="学习内容"></a>学习内容</h2><h3 id="自定义代码文件"><a href="#自定义代码文件" class="headerlink" title="自定义代码文件"></a>自定义代码文件</h3><p>在逐飞库中，有<code>./project/code</code>这样一个文件夹，用于储存我们自行编写的代码文件。</p>
 <p>我们以一份用于进行一阶互补滤波姿态解算的代码文件为例，演示添加、编写和调用自行编写的代码时需要注意的地方。</p>
 <p>在<code>./project/code</code>目录下新建名为<code>imu.c</code>和<code>imu.h</code>的文件。</p>
@@ -179,7 +185,7 @@
 <p>虽然此程序较长，至少有一个明显的好处，程序中只调用一个读取字符的getchar()函数，而且程序中只有一个循环，不像之前程序使用四个循环。</p>
 <p>此程序中while循环内的程序即为自动机的步骤，而循环本身即可重复的执行自动机的程序。</p>
 <p>此程序实现如下图所示的有限状态机，其中N表示换行字符、S表示空白、A表示其他的字符。自动机依目前状态及读取的字符不同，会执行图中一个箭头所示的动作，可能是由一个状态跳到下一个状态，也者停在原来的状态。其中有些箭头有标示星号，表示需打印读到的字符。</p>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Automata_that_prints_the_first_word_of_each_line.png" alt="Automata"></p>
+<p><img src="/images/Automata_that_prints_the_first_word_of_each_line.png" alt="Automata"><br><i>图片来自<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Main_Page" class="extiw" title="en:Main Page">English Wikipedia</a> 用户 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/User:DrCroco" class="extiw" title="en:User:DrCroco">DrCroco</a>，<a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-sa/3.0/" title="Creative Commons Attribution-Share Alike 3.0">CC BY-SA 3.0</a>，<a target="_blank" rel="noopener" href="https://commons.wikimedia.org/w/index.php?curid=19616119">链接</a></i></p>
 <p>自动机编程中，不一定要为每一个状态撰写独立的进程，而且有时状态是由许多变量组成，无法针对每一个状态规划个别的进程。此想法有时有助于程序的精简，例如在上述程序中，不论是在哪一个状态，针对换行字符的处理都一様，因此程序可以先处理换行字符，其他输入字符时才依不同状态进行处理，简化后变成以下的程序：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    enum states &#123;</span><br><span class="line">        before, inside, after</span><br><span class="line">    &#125; state;</span><br><span class="line">    int c;</span><br><span class="line">    state = before;</span><br><span class="line">    while((c = getchar()) != EOF) &#123;</span><br><span class="line">        if(c == &#x27;\n&#x27;) &#123;</span><br><span class="line">            putchar(&#x27;\n&#x27;);</span><br><span class="line">            state = before;</span><br><span class="line">        &#125; else</span><br><span class="line">        switch(state) &#123;</span><br><span class="line">            case before:</span><br><span class="line">                if(c != &#x27; &#x27;) &#123;</span><br><span class="line">                    putchar(c);</span><br><span class="line">                    state = inside;</span><br><span class="line">                &#125;</span><br><span class="line">                break;</span><br><span class="line">            case inside:</span><br><span class="line">                if(c == &#x27; &#x27;) &#123;</span><br><span class="line">                    state = after;</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    putchar(c);</span><br><span class="line">                &#125;</span><br><span class="line">                break;</span><br><span class="line">            case after:</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
