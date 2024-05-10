@@ -10,6 +10,7 @@
     <style>
         body {margin:0;padding:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;height:100vh; line-height:1.5;}
         .logo {max-width:200px;margin-bottom:20px;}
+        .img404 {max-width: 600px;margin-bottom:48px;}
         h1 {font-size: 48px;}
         #Not404 {display:block;}
         #countdown {margin-top:60px;}
@@ -18,17 +19,11 @@
     </style>
 </head>
 <body>
-    <a href="/index.html">
-        <div class="logo">
-            <img src="https://raw.githubusercontent.com/ChaoiteC/ChaoiteC.github.io/main/img/logo.png" alt="Logo">
-        </div>
-    </a>
-    <h1>404 Not Found</h1>
+    <img src="img/404-NotFound.png" alt="404 Not Found" class="img404">
     <div>你正在尝试访问“<span id="actualUrl"></span></div>
-    <div id="Not404">但本站无法找到对应的文件，<br>即这是一个不曾存在/已经不存在的页面。<br>遭遇这种情况的原因可能是你访问了错误的链接，<br>或者你访问的页面已从本站被删除。</div>
-    <div id="Not404">如果你是从钉钉进行的访问，请注意钉钉是否正确识别了中文URL。你可能得手动复制链接访问。</div>
-    <div id="countdown">如果你不进行任何操作，本页将在60秒后重定向到本站主页，而且你可能无法再返回本页。</div>
-    <p>你也可以点击上面的Logo立刻跳转。</p>
+    <div id="Not404">但本站无法找到对应的页面，<br>即这是一个不曾存在/已经不存在的页面。<br>遭遇这种问题的原因可能是你访问了错误的链接，<br>也可能是你访问的页面已从本站被移动或删除。</div>
+    <div id="countdown">本页将在30秒后重定向到<a href="/index.html">本站主页</a>，而且你可能无法再返回本页。</div>
+    <p>PS:这个可爱的404图标作者为<a href="https://github.com/SAWARATSUKI">SAWARATSUKI</a>。</p>
 
     <div class="icp" style="display: flex; align-items: center;">
         <a href="https://icp.gov.moe/?keyword=20246280" target="_blank" style="display: flex; align-items: center; text-decoration: none;">
@@ -41,27 +36,22 @@
         var actualUrlElement = document.getElementById("actualUrl");
         var Not404 = document.getElementById("Not404");
         var currentUrl = decodeURIComponent(window.location.href);
-
-        // 如果当前页面的URL为404页面，则显示额外内容
         if (currentUrl.indexOf("404.html") !== -1) {
             actualUrlElement.textContent = currentUrl + "”，对404页面这么好奇吗？"
             Not404.style.display = "none";
         } else {
             actualUrlElement.textContent = currentUrl + "”，";
         }
-
         var countdownElement = document.getElementById("countdown");
-        var countdown = 60; // 设置倒计时秒数
-
+        var countdown = 30;
         var countdownInterval = setInterval(function() {
             countdown--;
-            countdownElement.textContent = "如果你不进行任何操作，本页将在" + countdown + "秒后重定向到本站主页，而且你可能无法再返回本页。";
-
+            countdownElement.innerHTML = "本页将在" + countdown + "秒后重定向到<a href='/index.html'>本站主页</a>，而且你可能无法再返回本页。";
             if (countdown <= 0) {
                 clearInterval(countdownInterval);
                 window.location.href = "/index.html";
             }
-        }, 1000); // 每隔1秒更新一次倒计时
+        }, 1000);
     </script>
 </body>
 </html>
