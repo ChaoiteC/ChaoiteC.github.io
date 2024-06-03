@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://chaoitec.github.io/sic%E5%AE%9E%E9%AA%8C%E5%AE%A423%E5%B1%8A%E7%AC%AC%E5%8D%81%E6%AC%A1%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/</loc>
+    <loc>https://chaoitec.github.io/about/index.html</loc>
     
     <lastmod>2024-06-03</lastmod>
     
@@ -20,7 +20,16 @@
   </url>
   
   <url>
-    <loc>https://chaoitec.github.io/SIC-11/</loc>
+    <loc>https://chaoitec.github.io/categories/index.html</loc>
+    
+    <lastmod>2024-06-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://chaoitec.github.io/sic%E5%AE%9E%E9%AA%8C%E5%AE%A423%E5%B1%8A%E7%AC%AC%E5%8D%81%E6%AC%A1%E5%AD%A6%E4%B9%A0%E7%9B%AE%E6%A0%87/</loc>
     
     <lastmod>2024-06-03</lastmod>
     
@@ -84,24 +93,6 @@
   
   <url>
     <loc>https://chaoitec.github.io/404.html</loc>
-    
-    <lastmod>2024-06-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chaoitec.github.io/about/index.html</loc>
-    
-    <lastmod>2024-06-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://chaoitec.github.io/categories/index.html</loc>
     
     <lastmod>2024-06-03</lastmod>
     
