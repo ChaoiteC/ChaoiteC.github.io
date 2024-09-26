@@ -290,7 +290,7 @@
 <p>在桌面（或者其他文件夹）<strong>右键菜单中（可能需要“显示更多选项”）选择Git bash here</strong>，输入并执行下面命令（美元符号不用输入）：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name &quot;YourName&quot;</span><br><span class="line">$ git config --global user.email &quot;YourEmail@example.com&quot;</span><br></pre></td></tr></table></figure>
 
-<p><mark>记得把<code>YourName</code>和<code><a href="mailto:&#89;&#111;&#x75;&#x72;&#69;&#109;&#97;&#x69;&#x6c;&#x40;&#101;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#x6d;">&#89;&#111;&#x75;&#x72;&#69;&#109;&#97;&#x69;&#x6c;&#x40;&#101;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#x6d;</a></code>改成你实际使用的（）。</mark></p>
+<p><mark>记得把<code>YourName</code>和<code><a href="mailto:&#x59;&#x6f;&#x75;&#x72;&#x45;&#109;&#x61;&#105;&#108;&#x40;&#x65;&#x78;&#x61;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#109;">&#x59;&#x6f;&#x75;&#x72;&#x45;&#109;&#x61;&#105;&#108;&#x40;&#x65;&#x78;&#x61;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#109;</a></code>改成你实际使用的（）。</mark></p>
 <p><img src="/images/1.jpg" alt="在桌面右键菜单中选择git bash here"></p>
 <p><code>--global</code>参数将使更改是全局性的，之后你在这个系统上的操作都会默认使用此信息。</p>
 <h4 id="Gitee或者GitHub——代码托管平台"><a href="#Gitee或者GitHub——代码托管平台" class="headerlink" title="Gitee或者GitHub——代码托管平台"></a>Gitee或者GitHub——代码托管平台</h4><p><a href="https://gitee.com/">Gitee（码云）</a>是开源中国于2013年推出的基于Git的代码托管服务，目前已经成为国内知名的代码托管平台，提供中华人民共和国本土化的代码托管服务。</p>
@@ -657,7 +657,7 @@
 <p>本文内容不涉及选购服务器，但如果你意欲购买，请注意域名注册商和服务器提供商主体应该同在境内或境外，若一方在境内一方在境外，备案时可能会产生问题。</p>
 </blockquote>
 <p>选择一个合适的域名注册商是很重要的，至少是关乎钱包（）。我比较欣赏的是Cloudflare，他们也提供Pages服务和自动部署功能，而且配置其实比GitHub简单得多，在他们那里购买域名的话配置应该也是很简单的。但我最后选择的是Godaddy，为什么呢？因为Cloudflare注册不了.moe域名，让我感到非常遗憾。</p>
-<p>另外在Godaddy购买的时候可以选择买一个￥9&#x2F;月的企业邮箱服务，让你可以快速拥有一个（一堆）以自己的域名为主机名的邮箱！例如我的邮箱：<a href="mailto:&#x6b;&#97;&#114;&#117;&#x62;&#111;&#x6e;&#119;&#97;&#x69;&#116;&#x6f;&#64;&#107;&#x61;&#114;&#117;&#x62;&#111;&#x6e;&#46;&#x6d;&#111;&#101;">&#x6b;&#97;&#114;&#117;&#x62;&#111;&#x6e;&#119;&#97;&#x69;&#116;&#x6f;&#64;&#107;&#x61;&#114;&#117;&#x62;&#111;&#x6e;&#46;&#x6d;&#111;&#101;</a>。</p>
+<p>另外在Godaddy购买的时候可以选择买一个￥9&#x2F;月的企业邮箱服务，让你可以快速拥有一个（一堆）以自己的域名为主机名的邮箱！例如我的邮箱：<a href="mailto:&#x6b;&#97;&#x72;&#117;&#x62;&#111;&#110;&#119;&#97;&#x69;&#116;&#111;&#64;&#107;&#x61;&#x72;&#117;&#98;&#111;&#110;&#46;&#x6d;&#x6f;&#101;">&#x6b;&#97;&#x72;&#117;&#x62;&#111;&#110;&#119;&#97;&#x69;&#116;&#111;&#64;&#107;&#x61;&#x72;&#117;&#98;&#111;&#110;&#46;&#x6d;&#x6f;&#101;</a>。</p>
 <p>所以本文会以Godaddy为例，介绍如何购买和配置域名。</p>
 <h4 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h4><p>访问<a href="https://www.godaddy.com/zh-sg">Godaddy官网</a>。先注册一个账号，然后搜索你想要的域名（例如本站的域名karubon.moe），如果这个域名没有被占用，你就会看到标价和加入购物车的按键。</p>
 <p>就像在网上购买一件商品一样一路继续，填写个人信息和支付方式，看清楚订单里的商品再付款，千万不要花钱购买自己不想要的东西。</p>
@@ -745,7 +745,7 @@
   <entry>
     <title>数字信号处理总结20240927</title>
     <url>/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%E6%80%BB%E7%BB%9320240927/</url>
-    <content><![CDATA[<h3 id="序列的基本运算"><a href="#序列的基本运算" class="headerlink" title="序列的基本运算"></a>序列的基本运算</h3><p>序列加法:把两序列同序号的序列值逐项对应相加。</p>
+    <content><![CDATA[<h2 id="提纲"><a href="#提纲" class="headerlink" title="提纲"></a>提纲</h2><h3 id="序列的基本运算"><a href="#序列的基本运算" class="headerlink" title="序列的基本运算"></a>序列的基本运算</h3><p>序列加法:把两序列同序号的序列值逐项对应相加。</p>
 <p>序列乘法:把两序列同序号的序列值逐项对应相乘。</p>
 <h3 id="序列的倍乘-y-n-ax-n"><a href="#序列的倍乘-y-n-ax-n" class="headerlink" title="序列的倍乘 y(n)&#x3D;ax(n)"></a>序列的倍乘 y(n)&#x3D;ax(n)</h3><p>把序列中所有序号下的序列值同乘一个常数a。</p>
 <h3 id="序列的移位-y-n-x-n-m"><a href="#序列的移位-y-n-x-n-m" class="headerlink" title="序列的移位 y(n)-x(n-m)"></a>序列的移位 y(n)-x(n-m)</h3><p>当 m 为正时，x(n-m)表示依次右移 m 个序数(延时)；x(n + m)表示依次左移 m 个序数(超前)</p>
@@ -761,6 +761,65 @@
 <li>多项式乘法<br>   将 x(n)和 h(n)写成多项式系数，进行多项式乘法运算。</li>
 <li>对位相乘(有限长序列卷积)<br>   原则:<br>   两序列右对齐<br>   按位对应相乘<strong>不进位</strong><br>   同列乘积值相加(注意n&#x3D;0的位置)</li>
 </ol>
+<h2 id="讲稿"><a href="#讲稿" class="headerlink" title="讲稿"></a>讲稿</h2><h3 id="1-序列的基本运算"><a href="#1-序列的基本运算" class="headerlink" title="1. 序列的基本运算"></a>1. 序列的基本运算</h3><p>首先，我们来看一下<strong>序列的加法和乘法</strong>。假设我们有两个长度相同的序列 ( x(n) ) 和 ( y(n) )：</p>
+<ul>
+<li><p><strong>序列加法</strong>：把两序列同序号的值逐项相加，即：</p>
+<p>[<br>z(n) &#x3D; x(n) + y(n)<br>]</p>
+</li>
+<li><p><strong>序列乘法</strong>：把两序列同序号的值逐项相乘，即：</p>
+<p>[<br>z(n) &#x3D; x(n) \times y(n)<br>]</p>
+</li>
+</ul>
+<p>这两种运算的特点是<strong>序列长度相同，且相同位置上的元素进行对应运算</strong>。</p>
+<h3 id="2-序列的倍乘"><a href="#2-序列的倍乘" class="headerlink" title="2. 序列的倍乘"></a>2. 序列的倍乘</h3><p>倍乘运算是指序列中的每一个值都乘以同一个常数。设 ( x(n) ) 是原序列，常数为 ( a )，则倍乘后的序列为：</p>
+<p>[<br>y(n) &#x3D; a \times x(n)<br>]</p>
+<p>这种运算的效果是将整个序列的幅值按比例放大或缩小。</p>
+<h3 id="3-序列的移位"><a href="#3-序列的移位" class="headerlink" title="3. 序列的移位"></a>3. 序列的移位</h3><p>移位运算的含义是<strong>改变序列值所在的位置</strong>，从而引起序列的<strong>延时</strong>或<strong>超前</strong>。</p>
+<ul>
+<li><p>若序列为 ( x(n) )，移位后的序列为 ( y(n) &#x3D; x(n - m) )，则表示序列右移 ( m ) 个位置，称为<strong>延时</strong>。</p>
+</li>
+<li><p>若移位后的序列为 ( y(n) &#x3D; x(n + m) )，表示序列左移 ( m ) 个位置，称为<strong>超前</strong>。</p>
+</li>
+</ul>
+<h3 id="4-序列的翻转"><a href="#4-序列的翻转" class="headerlink" title="4. 序列的翻转"></a>4. 序列的翻转</h3><p>序列的翻转是以 ( n &#x3D; 0 ) 为对称轴将序列反转，表达式为：</p>
+<p>[<br>y(n) &#x3D; x(-n)<br>]</p>
+<p>翻转后的序列形状发生改变，但对称性保持不变。</p>
+<h3 id="5-序列的尺度变换"><a href="#5-序列的尺度变换" class="headerlink" title="5. 序列的尺度变换"></a>5. 序列的尺度变换</h3><p>尺度变换包含<strong>抽取</strong>和<strong>内插</strong>两个操作：</p>
+<ul>
+<li><p><strong>抽取</strong>：从原序列中每隔 ( m ) 个点取一个值，形成新的序列 ( x(mn) )，称为<strong>序列的压缩</strong>。</p>
+</li>
+<li><p><strong>内插</strong>：在原序列中插入零值，将相邻值间的间隔扩展。插入 ( m-1 ) 个零值后，形成新的序列 ( x(n&#x2F;m) )，称为<strong>序列的扩展</strong>或<strong>内插</strong>。</p>
+</li>
+</ul>
+<h3 id="6-序列的卷积"><a href="#6-序列的卷积" class="headerlink" title="6. 序列的卷积"></a>6. 序列的卷积</h3><p>卷积是两个序列之间的重要运算，用于分析和合成系统输出。假设 ( x(n) ) 和 ( h(n) ) 是两个序列，它们的卷积定义为：</p>
+<p>[<br>y(n) &#x3D; \sum_{m&#x3D;-\infty}^{\infty} x(m) h(n-m)<br>]</p>
+<p>我们可以把卷积符号表示为 ( x(n) * h(n) )。卷积的结果就是<strong>两个序列按一定规则进行相乘并累加的运算结果</strong>。下面介绍几种常用的卷积求解方法：</p>
+<ol>
+<li><p><strong>图解法</strong>：</p>
+<ul>
+<li><strong>翻转</strong>：将 ( h(m) ) 以 ( m &#x3D; 0 ) 为对称轴翻转，得到 ( h(-m) )。</li>
+<li><strong>移位</strong>：将 ( h(-m) ) 向左或向右平移 ( n ) 个位置，形成 ( h(n-m) )。</li>
+<li><strong>相乘</strong>：将 ( h(n-m) ) 和 ( x(m) ) 的每个对应值相乘。</li>
+<li><strong>相加</strong>：将以上乘积的所有结果相加，得到卷积值 ( y(n) )。</li>
+</ul>
+</li>
+<li><p><strong>序列阵表法</strong>：</p>
+<ul>
+<li>将两个序列列出并对角相加，求得每一列的值，从而得到卷积结果。</li>
+</ul>
+</li>
+<li><p><strong>多项式乘法</strong>：</p>
+<ul>
+<li>将两个序列分别写成多项式，再进行多项式的乘法运算，得到卷积的结果。</li>
+</ul>
+</li>
+<li><p><strong>对位相乘法（有限长序列）</strong>：</p>
+<ul>
+<li>将两序列从右对齐，然后逐个位置相乘并累加，注意<strong>不进位相加</strong>。</li>
+</ul>
+</li>
+</ol>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>以上是序列的基本运算和卷积的几种求解方法。序列的运算在信号处理、控制理论等领域具有广泛的应用。理解这些基本操作，将有助于分析更复杂的系统模型。</p>
 ]]></content>
   </entry>
   <entry>
