@@ -109,13 +109,14 @@
 <h3 id="序列的翻转-y-n-x-n"><a href="#序列的翻转-y-n-x-n" class="headerlink" title="序列的翻转 y(n)&#x3D;x(-n)"></a>序列的翻转 y(n)&#x3D;x(-n)</h3><p>以 n&#x3D;0 为对称轴将 x(n) 加以反转的序列。</p>
 <h3 id="序列的尺度变换-抽取-压缩-和内插-扩展"><a href="#序列的尺度变换-抽取-压缩-和内插-扩展" class="headerlink" title="序列的尺度变换:抽取(压缩)和内插(扩展)"></a>序列的尺度变换:抽取(压缩)和内插(扩展)</h3><p>x(mn)表示序列每m点取一点，称为<strong>序列的压缩或抽取</strong>。</p>
 <p>x(n&#x2F;m)表示把原序列两相邻值之间插入m-1个零值，称为<strong>序列的伸展或内插零值</strong>。</p>
-<h3 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h3><p>$$<br>y(n)&#x3D;\sum_{m&#x3D;-\infty}^{\infty}x(m)h(n-m)&#x3D; \sum_{m&#x3D;-\infty}^{\infty}h(m)x(n-m)&#x3D;x(n)*h(n)<br>$$</p>
+<h3 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h3><p>$$<br>y(n)&#x3D;\sum_{m&#x3D;-\infty}^{\infty}x(m)h(n-m)&#x3D;\sum_{m&#x3D;-\infty}^{\infty}h(m)x(n-m)&#x3D;x(n)*h(n)<br>$$</p>
 <p>   卷积符号（*）</p>
 <p>x(n)和h(n)求卷积，表达式为*m从负无穷到正无穷x(m)乘于h(n-m)*，因为线性，因此可以交换。</p>
 <ol>
-<li><p>图解法<br>   翻转:先在变量坐标m上作出 x(m)和 h(m)，将 h(m)以m&#x3D;0为对称轴翻转成 h(-m)。<br>   移位:将h(-m)移位n，即得h(n-m)。当n为正整数时，左移n位;当n为负整数时，右移-n位。<br>   相乘:再将 h(n-m) 和 x(m) 的对应点值相乘.<br>   相加:把以上所有对应点的乘积累加，得y(n)值。</p>
-</li>
-<li></li>
+<li>图解法<br>   翻转:先在变量坐标m上作出 x(m)和 h(m)，将 h(m)以m&#x3D;0为对称轴翻转成 h(-m)。<br>   移位:将h(-m)移位n，即得h(n-m)。当n为正整数时，左移n位;当n为负整数时，右移-n位。<br>   相乘:再将 h(n-m) 和 x(m) 的对应点值相乘.<br>   相加:把以上所有对应点的乘积累加，得y(n)值。</li>
+<li>序列阵表法<br>   对角元素相加。</li>
+<li>多项式乘法<br>   将 x(n)和 h(n)写成多项式系数，进行多项式乘法运算。</li>
+<li>对位相乘(有限长序列卷积)<br>   原则:<br>   两序列右对齐<br>   按位对应相乘<strong>不进位</strong><br>   同列乘积值相加(注意n&#x3D;0的位置)</li>
 </ol>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
