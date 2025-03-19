@@ -28,7 +28,7 @@
 
 <p>在示例中：</p>
 <ul>
-<li>_IMU_H_是一个自定义的标识符，通常由头文件名加上下划线避免重复。逐飞库中主要有三种命名风格：__IMU_H、_IMU_H或者_IMU_H_，本文使用最后一种风格。</li>
+<li>_IMU_H_是一个自定义的标识符，通常由头文件名加上下划线避免重复。逐飞库中主要有三种命名风格：__IMU_H、<em>IMU_H或者_IMU_H</em>，本文使用最后一种风格。</li>
 <li>#ifndef（如果未定义）、#define（定义）和 #endif（结束）组合在一起，形成了一个条件编译的区域。</li>
 <li>如果_IMU_H_未定义，则#ifndef下的代码块会被执行，此时会定义_IMU_H_，并包含头文件内容。</li>
 <li>如果_IMU_H_已经定义，则#ifndef下的代码块会被忽略，避免了头文件被重复包含。</li>
@@ -290,7 +290,7 @@
 <p>在桌面（或者其他文件夹）<strong>右键菜单中（可能需要“显示更多选项”）选择Git bash here</strong>，输入并执行下面命令（美元符号不用输入）：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name &quot;YourName&quot;</span><br><span class="line">$ git config --global user.email &quot;YourEmail@example.com&quot;</span><br></pre></td></tr></table></figure>
 
-<p><mark>记得把<code>YourName</code>和<code><a href="mailto:&#x59;&#111;&#x75;&#x72;&#x45;&#x6d;&#97;&#x69;&#108;&#64;&#x65;&#120;&#x61;&#x6d;&#112;&#108;&#101;&#46;&#x63;&#111;&#109;">&#x59;&#111;&#x75;&#x72;&#x45;&#x6d;&#97;&#x69;&#108;&#64;&#x65;&#120;&#x61;&#x6d;&#112;&#108;&#101;&#46;&#x63;&#111;&#109;</a></code>改成你实际使用的（）。</mark></p>
+<p><mark>记得把<code>YourName</code>和<code><a href="mailto:&#89;&#111;&#117;&#114;&#x45;&#109;&#x61;&#105;&#108;&#64;&#101;&#120;&#97;&#x6d;&#112;&#x6c;&#x65;&#46;&#x63;&#x6f;&#x6d;">YourEmail@example.com</a></code>改成你实际使用的（）。</mark></p>
 <p><img src="/images/1.jpg" alt="在桌面右键菜单中选择git bash here"></p>
 <p><code>--global</code>参数将使更改是全局性的，之后你在这个系统上的操作都会默认使用此信息。</p>
 <h4 id="Gitee或者GitHub——代码托管平台"><a href="#Gitee或者GitHub——代码托管平台" class="headerlink" title="Gitee或者GitHub——代码托管平台"></a>Gitee或者GitHub——代码托管平台</h4><p><a href="https://gitee.com/">Gitee（码云）</a>是开源中国于2013年推出的基于Git的代码托管服务，目前已经成为国内知名的代码托管平台，提供中华人民共和国本土化的代码托管服务。</p>
@@ -442,7 +442,7 @@
 <p>在之后的日子里，我们会通过实验室内搭载英飞凌TC377芯片的逐飞学习板来继续学习关于竞赛的软件知识。</p>
 <p><img src="/images/ZF-PCB.jpg" alt="英飞凌TC377芯片的逐飞学习板"></p>
 <h4 id="下载开源库"><a href="#下载开源库" class="headerlink" title="下载开源库"></a>下载开源库</h4><p>访问<a href="https://gitee.com/seekfree/TC377_Library">逐飞TC377开源库的仓库首页</a>。点击文件目录右上角的“克隆&#x2F;下载”按钮。然后选择下载ZIP。</p>
-<p><img src="/images/23.jpg" alt="克隆/下载"></p>
+<p><img src="/images/23.jpg" alt="克隆&#x2F;下载"></p>
 <blockquote>
 <p>注意到页面上提供了克隆的方法吧？感兴趣可以试试。</p>
 </blockquote>
@@ -606,8 +606,10 @@
 <ol>
 <li>获取主题文件：如果你不熟悉git操作，那就在GitHub的Code菜单（绿色按键）中选择Download Zip，把主题文件下载到本地并解压。</li>
 <li>移动到文件夹：确定解压所得文件夹打开后就能看到_config.yml，将这个文件夹移动到博客根目录中的source文件夹。</li>
-<li>修改配置信息：在博客根目录下的_config.yml文件中找到theme参数，将其值改为你的主题文件夹名，例如：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">theme: YourThemeName</span><br></pre></td></tr></table></figure></li>
+<li>修改配置信息：在博客根目录下的_config.yml文件中找到theme参数，将其值改为你的主题文件夹名，例如：</li>
 </ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">theme: YourThemeName</span><br></pre></td></tr></table></figure>
+
 <p><img src="/images/6.jpg" alt="主题配置"></p>
 <p>现在在终端中逐行输入并执行下列指令：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ hexo clean </span><br><span class="line">$ hexo generate</span><br><span class="line">$ hexo server </span><br></pre></td></tr></table></figure>
@@ -679,7 +681,7 @@
 <p>本文内容不涉及选购服务器，但如果你意欲购买，请注意域名注册商和服务器提供商主体应该同在境内或境外，若一方在境内一方在境外，备案时可能会产生问题。</p>
 </blockquote>
 <p>选择一个合适的域名注册商是很重要的，至少是关乎钱包（）。我比较欣赏的是Cloudflare，他们也提供Pages服务和自动部署功能，而且配置其实比GitHub简单得多，在他们那里购买域名的话配置应该也是很简单的。但我最后选择的是Godaddy，为什么呢？因为Cloudflare注册不了.moe域名，让我感到非常遗憾。</p>
-<p>另外在Godaddy购买的时候可以选择买一个￥9&#x2F;月的企业邮箱服务，让你可以快速拥有一个（一堆）以自己的域名为主机名的邮箱！例如我的邮箱：<a href="mailto:&#x6b;&#x61;&#114;&#x75;&#x62;&#x6f;&#110;&#119;&#x61;&#105;&#x74;&#x6f;&#64;&#107;&#97;&#x72;&#x75;&#98;&#x6f;&#110;&#x2e;&#109;&#x6f;&#101;">&#x6b;&#x61;&#114;&#x75;&#x62;&#x6f;&#110;&#119;&#x61;&#105;&#x74;&#x6f;&#64;&#107;&#97;&#x72;&#x75;&#98;&#x6f;&#110;&#x2e;&#109;&#x6f;&#101;</a>。</p>
+<p>另外在Godaddy购买的时候可以选择买一个￥9&#x2F;月的企业邮箱服务，让你可以快速拥有一个（一堆）以自己的域名为主机名的邮箱！例如我的邮箱：<a href="mailto:&#x6b;&#x61;&#114;&#117;&#98;&#111;&#110;&#x77;&#x61;&#105;&#x74;&#111;&#x40;&#107;&#97;&#x72;&#x75;&#x62;&#111;&#110;&#x2e;&#x6d;&#111;&#101;">karubonwaito@karubon.moe</a>。</p>
 <p>所以本文会以Godaddy为例，介绍如何购买和配置域名。</p>
 <h4 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h4><p>访问<a href="https://www.godaddy.com/zh-sg">Godaddy官网</a>。先注册一个账号，然后搜索你想要的域名（例如本站的域名karubon.moe），如果这个域名没有被占用，你就会看到标价和加入购物车的按键。</p>
 <p>就像在网上购买一件商品一样一路继续，填写个人信息和支付方式，看清楚订单里的商品再付款，千万不要花钱购买自己不想要的东西。</p>
@@ -772,6 +774,16 @@
 ]]></content>
   </entry>
   <entry>
+    <title>敬过去。</title>
+    <url>/%E6%95%AC%E8%BF%87%E5%8E%BB%E3%80%82/</url>
+    <content><![CDATA[<p>就像平常一样，躺在床上做了一个梦。</p>
+<p>梦里面所有我以为忘记或者不在意的事物都涌了出来，织成一幅奇怪的画卷。</p>
+<p>就像平常一样地坐上公交车，那就是最后一次回到那里了；</p>
+<p>就像平常一样地接听视频电话，那就是最后一次见到那人了。</p>
+<p>2024年10月26日</p>
+]]></content>
+  </entry>
+  <entry>
     <title>数字信号处理总结20240927</title>
     <url>/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86%E6%80%BB%E7%BB%9320240927/</url>
     <content><![CDATA[<h2 id="提纲"><a href="#提纲" class="headerlink" title="提纲"></a>提纲</h2><h3 id="序列的基本运算"><a href="#序列的基本运算" class="headerlink" title="序列的基本运算"></a>序列的基本运算</h3><p>序列加法:把两序列同序号的序列值逐项对应相加。</p>
@@ -783,7 +795,7 @@
 <p>x(n&#x2F;m)表示把原序列两相邻值之间插入m-1个零值，称为<strong>序列的伸展或内插零值</strong>。</p>
 <h3 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h3><p>$$<br>y(n)&#x3D;\sum_{m&#x3D;-\infty}^{\infty}x(m)h(n-m)&#x3D;\sum_{m&#x3D;-\infty}^{\infty}h(m)x(n-m)&#x3D;x(n)*h(n)<br>$$</p>
 <p>   卷积符号（*）</p>
-<p>x(n)和h(n)求卷积，表达式为*m从负无穷到正无穷x(m)乘于h(n-m)*，因为线性，因此可以交换。</p>
+<p>x(n)和h(n)求卷积，表达式为<em>m从负无穷到正无穷x(m)乘于h(n-m)</em>，因为线性，因此可以交换。</p>
 <ol>
 <li>图解法<br>   翻转:先在变量坐标m上作出 x(m)和 h(m)，将 h(m)以m&#x3D;0为对称轴翻转成 h(-m)。<br>   移位:将h(-m)移位n，即得h(n-m)。当n为正整数时，左移n位;当n为负整数时，右移-n位。<br>   相乘:再将 h(n-m) 和 x(m) 的对应点值相乘.<br>   相加:把以上所有对应点的乘积累加，得y(n)值。</li>
 <li>序列阵表法<br>   对角元素相加。</li>
@@ -849,16 +861,6 @@
 </li>
 </ol>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>以上是序列的基本运算和卷积的几种求解方法。序列的运算在信号处理、控制理论等领域具有广泛的应用。理解这些基本操作，将有助于分析更复杂的系统模型。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>敬过去。</title>
-    <url>/%E6%95%AC%E8%BF%87%E5%8E%BB%E3%80%82/</url>
-    <content><![CDATA[<p>就像平常一样，躺在床上做了一个梦。</p>
-<p>梦里面所有我以为忘记或者不在意的事物都涌了出来，织成一幅奇怪的画卷。</p>
-<p>就像平常一样地坐上公交车，那就是最后一次回到那里了；</p>
-<p>就像平常一样地接听视频电话，那就是最后一次见到那人了。</p>
-<p>2024年10月26日</p>
 ]]></content>
   </entry>
 </search>
