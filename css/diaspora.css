@@ -182,7 +182,7 @@ h1.title {font-size:30px;color:#333;line-height:1.3;position:relative;font-weigh
 .icon-menu:before{content:"\e623"}
 .icon-home:before{content:"\e612"}
 /*.icon-facebook:before{content:"\e632"}*/
-/*.icon-twitter:before{content:"\e659"}*/
+.icon-twitter:before{content:"\e659"}
 /*.icon-github:before{content:"\e64a"}*/
 .icon-pause:before{content:"\e64c"}
 .icon-scan:before{content:"\e600"}
